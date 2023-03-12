@@ -1,0 +1,69 @@
+/* pages/team_reserve/team_reserve.wxss */
+.root {
+  width: 100%;
+   height: 100%;
+   background-color: #70c7da;
+   position: relative;
+}
+
+.background-image{
+  width: 750rpx; 
+  height: 1500rpx;
+   position: fixed;
+   opacity: 0.85;
+   width: 100%;
+   left: 0px;
+   top: 0px;
+}
+.content{
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   left: 0px;
+   top: 0px;
+}
+
+.table{
+  display: flex;
+  flex-direction: column;
+  margin: 60px auto;
+  padding-left: 30px;
+}
+
+input{
+  border-radius: 4px;
+  width: 85%;
+  background-color: rgba(255, 255, 255, 0.699);
+  border: rgba(128, 128, 128, 0.411) 1px solid;
+}
+
+.small_red{
+  font-size: small;
+  color: red;
+}
+
+.summit{
+  width: 65px;
+  background-color: rgba(255, 255, 255, 0.699);
+  padding: 5px;
+  margin: 10px auto;
+  text-align: center;
+}
+
+.picker{
+  border-radius: 4px;
+  width: 85%;
+  background-color: rgba(255, 255, 255, 0.699);
+  border: rgba(128, 128, 128, 0.411) 1px solid;
+  text-align: center;
+}
+
+.like_input{
+  color: rgba(138, 135, 135, 0.699);
+  padding: 1px;
+  text-align: center;
+  border-radius: 4px;
+  width: 85%;
+  background-color: rgba(255, 255, 255, 0.699);
+  border: rgba(128, 128, 128, 0.411) 1px solid;
+}

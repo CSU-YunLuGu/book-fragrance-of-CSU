@@ -1,0 +1,89 @@
+/* pages/choose_place/choose_place.wxss */
+.root {
+  width: 100%;
+   height: 100%;
+   position: relative;
+}
+
+.small_font_size{
+  font-size: small;
+}
+
+.gray_font{
+  color: gray;
+}
+
+.background-image{
+  width: 750rpx; 
+  height: 1500rpx;
+   position: fixed;
+   width: 100%;
+   left: 0px;
+   top: 0px;
+   opacity: 0.85;
+}
+.content{
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   left: 0px;
+   top: 0px;
+}
+
+.image_use{
+  width: 250px;
+  height: 90px;
+  background-color: rgb(156, 201, 243);
+}
+
+.place{
+  background-color: rgba(255, 255, 255, 0.425);
+  margin: 15px auto;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-self: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 4px;
+  /* border: 1px rgba(177, 176, 176, 0.863) solid; */
+  /* border-top: 1px rgba(177, 176, 176, 0.863) solid; */
+
+}
+
+.people{
+  display: flex;
+  justify-content: center;
+  height: 60px;
+  border-bottom: 1px rgb(170, 167, 167) solid;
+}
+
+.small_flex_box{
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-self: center;
+  align-items: center; 
+}
+
+.divide_two{
+  display: flex;
+  justify-content: space-between;
+}
+
+.info{
+  width: 80%;
+  border-bottom: 1px rgba(173, 171, 171, 0.308) solid;
+  padding: 5px;
+}
+
+navigator{
+  margin: 10px;
+  color: white;
+  margin-top: 10px;
+  border-radius: 2px;
+  background-color: rgb(86, 169, 207);
+  padding: 5px;
+}

@@ -1,0 +1,33 @@
+<!--pages/place_resever/place_resever.wxml-->
+<view class="root">
+  <image class='background-image' src='../../images/back.jpg' mode="aspectFill"></image>
+  <view class="content">
+    <view class="table">
+      <view>单位</view>
+      <input bindinput="add_class" placeholder-class="small_red" placeholder=" *" type="text"/>
+      <view>姓名</view>
+      <input bindinput="add_name" placeholder-class="small_red" placeholder=" *" type="text"/>
+      <view>职工号</view>
+      <input bindinput="add_id" placeholder-class="small_red" placeholder=" *" type="text"/>
+      <view>联系电话</view>
+      <input bindinput="add_phone" placeholder-class="small_red" placeholder=" *" type="number"/>
+      <view>邮箱</view>
+      <input bindinput="add_mail" placeholder-class="small_red" placeholder=" *" type="text"/>
+      <view>用途</view>
+      <input bindinput="add_useage" placeholder-class="small_red" placeholder=" *" type="text"/>
+      <view>预约时间（个人仅可预约下一天）</view>
+      <view class="picker">
+          {{tomorrow}}
+      </view>
+      <view>您已预约{{had_reserve}}个时间段，最多预约4个</view>
+      <checkbox-group bindchange="box_change">
+        <label wx:for="{{time_select}}" wx:key="value">
+          <checkbox value="{{index}}" checked="{{item.checkd}}" disabled="{{(lasted[index]==0||had_reserve_arr[index]==true)?true:item.disabled}}">{{item.time}} <p class="last">剩余{{lasted[index]}}</p></checkbox>
+        </label>
+      </checkbox-group> 
+    </view>
+    <view bindtap="submit" class="summit">提交</view>
+  </view>
+  
+</view>
+

@@ -1,0 +1,82 @@
+<!--pages/choose_place/choose_place.wxml-->
+<view class="root">
+<!-- 背景图片 -->
+  <image class='background-image' src='../../images/back.jpg' mode="aspectFill"></image>
+ <!-- 页面内容 -->
+  <view class="content">
+    <view class="place">
+      <view>体育馆（新校区）篮、排球场</view>
+      <image class="image_use" mode="aspectFill"></image>
+      <view class="people">
+        <view class="small_flex_box" style="border-right:2px rgba(167, 165, 165, 0.568) solid;">
+          <view>30人</view>
+          <view class="small_font_size gray_font">可容纳30人</view>
+        </view>
+        <view class="small_flex_box">
+          <view>{{complet[0].had_reserver}}人</view>
+          <view  class="small_font_size  gray_font">已成功预约</view>
+        </view>
+      </view>
+      <view class="info small_font_size" style="width: 100%;">
+        <view class=".divide_two">
+          <view>校区</view>
+          <view>新校区</view>
+        </view>
+        <view class=".divide_two">
+          <view>楼栋</view>
+          <view>体育馆</view>
+        </view>
+        <view class=".divide_two">
+          <view>详细地址</view>
+          <view>新校区体育馆1号教室场</view>
+        </view>
+        <view class=".divide_two">
+          <view>负责部门</view>
+          <view>体育教研部</view>
+        </view>
+      </view>
+      <view class="divide_two">
+      <!-- 这里在页面跳转时也传递了一个参数place,1象征第一个地点，下面的二象征着第二个地点 -->
+        <navigator url="../personal_reserve/personal_reserve?place=1">个人预约</navigator>
+        <navigator url="../team_reserve/team_reserve?place=1">团体预约</navigator>
+      </view>
+    </view>
+
+    <view class="place">
+      <view>体育馆（新校区）篮、排球场</view>
+      <image class="image_use" mode="aspectFill"></image>
+      <view class="people">
+        <view class="small_flex_box" style="border-right:2px rgba(167, 165, 165, 0.568) solid;">
+          <view>30人</view>
+          <view class="small_font_size gray_font">可容纳30人</view>
+        </view>
+        <view class="small_flex_box">
+          <view>{{complet[1].had_reserver}}人</view>
+          <view  class="small_font_size  gray_font">已成功预约</view>
+        </view>
+      </view>
+      <view class="info small_font_size" style="width: 100%;">
+        <view class=".divide_two">
+          <view>校区</view>
+          <view>新校区</view>
+        </view>
+        <view class=".divide_two">
+          <view>楼栋</view>
+          <view>体育馆</view>
+        </view>
+        <view class=".divide_two">
+          <view>详细地址</view>
+          <view>新校区体育馆1号教室场</view>
+        </view>
+        <view class=".divide_two">
+          <view>负责部门</view>
+          <view>体育教研部</view>
+        </view>
+      </view>
+      <view class="divide_two">
+        <navigator url="../personal_reserve/personal_reserve?place=2">个人预约</navigator>
+        <navigator url="../team_reserve/team_reserve?place=2">团体预约</navigator>
+      </view>
+    </view>
+  </view>
+</view>

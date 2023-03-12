@@ -1,0 +1,1 @@
+"E:\APP\微信web开发者工具\cli.bat" cloud functions deploy --e cloud1-9gkrvr9f6cef335d --n quickstartFunctions --r --project "E:\CODE\微信小程序\CSU_book_fragrance" --report_first --report

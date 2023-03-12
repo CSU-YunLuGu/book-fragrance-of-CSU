@@ -1,0 +1,30 @@
+<!--pages/team_reserve/team_reserve.wxml-->
+<view class="root">
+  <image class='background-image' src='../../images/back.jpg' mode="aspectFill"></image>
+  <view class="content">
+    <view class="table">
+      <view>单位</view>
+      <input bindinput="add_class" placeholder-class="small_red" placeholder=" *" type="text"/>
+      <view>姓名</view>
+      <input bindinput="add_name" placeholder-class="small_red" placeholder=" *" type="text"/>
+      <view>职工号</view>
+      <input bindinput="add_id" placeholder-class="small_red" placeholder=" *" type="text"/>
+      <view>联系电话</view>
+      <input bindinput="add_phone" placeholder-class="small_red" placeholder=" *" type="number"/>
+      <view>邮箱</view>
+      <input bindinput="add_mail" placeholder-class="small_red" placeholder=" *" type="text"/>
+      <view>用途</view>
+      <input bindinput="add_perpurs" placeholder-class="small_red" placeholder=" *" type="text"/>
+      <view>可预约日期{{today[0]+"-"+today[1]+"-"+today[2]}}~{{end_day}}</view>
+      <view>
+        <picker mode="date" value="{{date}}" start='{{today[0]+"-"+today[1]+"-"+today[2]}}' end="{{end_day}}" bindchange="add_Date">
+        <view class="picker">
+          当前选择: {{date?date:today[0]+"-"+today[1]+"-"+today[2]}}
+        </view>
+        </picker>
+      </view>
+    </view>
+    <view bindtap="submit" class="summit">提交</view>
+  </view>
+  
+</view>
