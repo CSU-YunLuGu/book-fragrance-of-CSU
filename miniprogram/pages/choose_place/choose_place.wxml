@@ -36,12 +36,12 @@
         </view>
       </view>
       <view class="divide_two">
-      <!-- 这里在页面跳转时也传递了一个参数place,1象征第一个地点，下面的二象征着第二个地点 -->
-        <navigator url="../personal_reserve/personal_reserve?place=1">个人预约</navigator>
-        <navigator url="../team_reserve/team_reserve?place=1">团体预约</navigator>
+      <!-- 这里在页面跳转时也传递了两个参数place,1象征第一个地点，下面的二象征着第二个地点 -->
+      <!-- who的数据1象征个人，2象征团体 -->
+        <view class="navigator" data-who="1" data-place="1" bindtap="show_tip">个人预约</view>
+        <view class="navigator" data-who="2" data-place="1" bindtap="show_tip">团体预约</view>
       </view>
     </view>
-
     <view class="place">
       <view>体育馆（新校区）篮、排球场</view>
       <image class="image_use" mode="aspectFill"></image>
@@ -74,9 +74,18 @@
         </view>
       </view>
       <view class="divide_two">
-        <navigator url="../personal_reserve/personal_reserve?place=2">个人预约</navigator>
-        <navigator url="../team_reserve/team_reserve?place=2">团体预约</navigator>
+        <view class="navigator" data-who="1" data-place="2" bindtap="show_tip">个人预约</view>
+        <view class="navigator" data-who="2" data-place="2" bindtap="show_tip">团体预约</view>
       </view>
     </view>
+  </view>
+  <view class="{{tip}}">
+  <view class="title">注意事项</view>
+  <view class="paragragh">1.场馆预约成功后无特殊情况不能随意更改，使用期间不能带走或毁坏房间内的公共物品，不能大声喧哗。在使用结束后，需整理好所在位置卫生。</view>
+  <view class="paragragh">2.预约了场馆的老师、同学可以加入沙龙室使用群，群号为xxxxxx，有任何问题可以在沙龙室使用群说明，或联系群主（qq号xxxxxx，电话xxxxxx）。</view>
+  <view class="paragragh">3.预约成功的老师、同学请按时进入场馆，如有特殊情况管理员会第一时间撤消预约者的申请，并打电话说明情况。</view>
+  <view class="paragragh">4.使用者在使用场馆前，需要在场馆门口登记本中进行登记。</view>
+  <view class="{{time_class}}">{{time}}</view>
+  <view class="{{button}}" bindtap="to_reserve">已知晓</view>
   </view>
 </view>

@@ -3,9 +3,17 @@
     "pages": [
         "pages/start/start",
         "pages/choose_place/choose_place",
-        "pages/personal_reserve/personal_reserve",
-        "pages/team_reserve/team_reserve",
-        "pages/activity_reserve/activity_reserve"
+        "pages/activity_reserve/activity_reserve",
+        "pages/my/my"
+    ],
+    "subpackages": [
+        {
+            "root": "packageA",
+            "pages": [
+                "pages/personal_reserve/personal_reserve",
+                "pages/team_reserve/team_reserve"
+            ]
+        }
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -15,7 +23,7 @@
     },
     "tabBar": {
         "position": "top",
-        "backgroundColor": "#f7d6e3",
+        "backgroundColor": "#f8e3eb",
         "color": "#56a9cf",
         "selectedColor": "#56a9cf",
         "list": [
@@ -26,6 +34,10 @@
             {
                 "pagePath": "pages/activity_reserve/activity_reserve",
                 "text": "活动预约"
+            },
+            {
+                "pagePath": "pages/my/my",
+                "text": "我的"
             }
         ]
     },
