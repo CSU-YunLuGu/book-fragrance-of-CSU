@@ -65,11 +65,12 @@ input{
 checkbox .wx-checkbox-input {
   width: 30rpx;
   height: 30rpx;
+  background-color: rgba(234, 134, 243, 0.322);
 }
 
 checkbox{
   font-weight: lighter;
-  width: 50%;
+  width: 50%; 
 }
 
 .last{

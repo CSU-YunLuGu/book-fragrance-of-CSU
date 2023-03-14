@@ -33,7 +33,7 @@
 .image_use{
   width: 250px;
   height: 90px;
-  background-color: rgb(156, 201, 243);
+  background-color: #f7d6e3;
 }
 
 .place{
@@ -84,6 +84,6 @@ navigator{
   color: white;
   margin-top: 10px;
   border-radius: 2px;
-  background-color: rgb(86, 169, 207);
+  background-color: #56a9cf;
   padding: 5px;
 }

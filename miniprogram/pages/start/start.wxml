@@ -1,0 +1,9 @@
+<!--pages/start/start.wxml-->
+<view class="root">
+<!-- 背景图片 -->
+  <image class='background-image' src='../../images/back.jpg' mode="aspectFill"></image>
+ <!-- 页面内容 -->
+  <view class="content">
+    <view class="timer">{{time}}</view>
+  </view>
+</view>

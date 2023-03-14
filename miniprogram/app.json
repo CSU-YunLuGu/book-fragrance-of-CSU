@@ -1,15 +1,33 @@
 {
     "cloud": true,
     "pages": [
+        "pages/start/start",
         "pages/choose_place/choose_place",
         "pages/personal_reserve/personal_reserve",
-        "pages/team_reserve/team_reserve"
+        "pages/team_reserve/team_reserve",
+        "pages/activity_reserve/activity_reserve"
     ],
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#F6F6F6",
         "navigationBarTitleText": "场地预约",
         "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "position": "top",
+        "backgroundColor": "#f7d6e3",
+        "color": "#56a9cf",
+        "selectedColor": "#56a9cf",
+        "list": [
+            {
+                "pagePath": "pages/choose_place/choose_place",
+                "text": "场地预约"
+            },
+            {
+                "pagePath": "pages/activity_reserve/activity_reserve",
+                "text": "活动预约"
+            }
+        ]
     },
     "sitemapLocation": "sitemap.json",
     "style": "v2"
