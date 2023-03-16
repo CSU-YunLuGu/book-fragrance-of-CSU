@@ -15,6 +15,7 @@
             ]
         }
     ],
+    "lazyCodeLoading": "requiredComponents",
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#F6F6F6",

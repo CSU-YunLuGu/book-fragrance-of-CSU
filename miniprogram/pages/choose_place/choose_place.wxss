@@ -66,23 +66,31 @@
 .tip{
   /* font-family: cursive; */
   position: fixed;
-  border-radius: 10px;
-  border: 5px solid rgb(95, 195, 235);
+  /* border-radius: 10px; */
+  overflow: hidden;
+  height: 450px;
+  /* max-height: 450px; */
+  border: 2px solid rgb(141, 156, 156);
   top: 5%;
   left: 5%;
-  z-index: 999;
+  z-index: 100;
   width: 80%;
-  background-color: rgb(184, 240, 235);
+  background-color: rgba(243, 243, 243, 0.952);
   padding: 12px;
-  box-shadow: 3px 3px 2px rgba(128, 128, 128, 0.658);
+  box-shadow: 4px 4px 2px rgba(128, 128, 128, 0.658);
 }
 
 .title{
   text-align: center;
+  padding-bottom: 8px;
+  border-bottom: 1px solid gray;
+  font-weight: bold;
+  font-size:15px;
 }
 
 .paragragh{
   margin-top: 10px;
+  font-family: 仿宋;
 }
 
 .hide{
@@ -95,8 +103,20 @@
   padding: 7px;
   border-radius: 5px;
   border: 1px solid gray;
-  
+  color: rgb(255, 255, 255);
   width: 60px;
   margin-top: 20px;
-  background-color: rgb(119, 233, 241);
+  background-color: rgb(97, 213, 241);
+}
+
+.to_font{
+  width: 92%;
+  position: absolute;
+}
+
+.to_back{
+  top: 20%;
+  opacity: 0.25;
+  position: absolute;
+  width: 90%;
 }
