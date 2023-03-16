@@ -1,1 +1,35 @@
-/* pages/activity_reserve/activity_reserve.wxss */
+/**index.wxss**/
+.parter{
+  height: 40px;
+  border-bottom: 1px lightgray solid;
+  width: 100%;
+  margin-left: 10px;
+  display: flex;
+}
+.section_title{
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  align-items: center;
+  text-align: justify;
+}
+.input-border{
+  margin-top: 10px;
+  
+}
+.picker{
+  width: 100%;
+}
+.submit{
+  display: flex;
+  height: 80%;
+  width: 20px;
+  font-size: small;
+
+}
+.reset{
+  display: flex;
+  height: 80%;
+  width: 20px;
+  font-size: small;
+}

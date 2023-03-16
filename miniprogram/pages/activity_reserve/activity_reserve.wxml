@@ -1,2 +1,100 @@
-<!--pages/activity_reserve/activity_reserve.wxml-->
-<text>pages/activity_reserve/activity_reserve.wxml</text>
+<!--index.wxml-->
+<view class="page_body">
+  <form >
+    <view class="parter">
+      <view class="section_title">
+        学院
+      </view>
+      <picker mode="selector" range="{{academy}}" bindchange="bindPickerChange">
+        <view class="section_title" >
+          {{ifactive_academy}}
+        </view>
+      </picker>
+    </view>
+    <view class="parter">
+      <view class="section_title" >
+        用途
+      </view>
+      <input class="input-border" id="purposes" placeholder="请输入用途" bindinput="InputPurpose"/>
+    </view>
+    <view class="parter">
+      <view class="section_title" >
+        辅导员姓名
+      </view>
+      <input class="input-border" id="counselor" placeholder="请确认已获得辅导员许可" bindinput="InputCounselor"/>
+    </view>
+    <view class="parter">
+      <view class="section_title" >
+        联系人
+      </view>
+      <input class="input-border" id="contact" placeholder="请输入联系人姓名" bindinput="InputContact"/>
+    </view>
+    <view class="parter">
+      <view class="section_title" >
+        联系方式
+      </view>
+      <input class="input-border" id="contact_information" placeholder="请输入手机号" bindinput="InputContact_information"/>
+    </view>
+    <view class="parter">
+      <view class="section_title" >
+        主持人
+      </view>
+      <input class="input-border" id="host" placeholder="请输入主持人姓名"/>
+    </view>
+    <view class="parter">
+      <view class="section_title" >
+        活动人数
+      </view>
+      <input class="input-border" id="number_of_people" placeholder="请输入活动人数"/>
+    </view>
+    <view class="parter">
+      <view class="section_title">
+        日期
+      </view>
+      <picker mode="date" range="{{date}}" bindchange="bindPickerDate">
+        <view class="section_title" >
+          {{ifactive_date}} 
+        </view>
+      </picker>
+    </view>
+    <view class="parter">
+      <view class="section_title">
+        学院
+      </view>
+      <picker mode="selector" range="{{xueyuan}}" bindchange="bindPickerChange">
+        <view class="section_title" >
+          {{ifactive}}  {{xueyuan[index]}}
+        </view>
+      </picker>
+    </view>
+    <view class="parter">
+      <view class="section_title">
+        学院
+      </view>
+      <picker mode="selector" range="{{xueyuan}}" bindchange="bindPickerChange">
+        <view class="section_title" >
+          {{ifactive}}  {{xueyuan[index]}}
+        </view>
+      </picker>
+    </view>
+    <view class="parter">
+      <view class="section_title">
+        学院
+      </view>
+      <picker mode="selector" range="{{xueyuan}}" bindchange="bindPickerChange">
+        <view class="section_title" >
+          {{ifactive}}  {{xueyuan[index]}}
+        </view>
+      </picker>
+    </view>
+    <view class="parter">
+      <button class="submit" bindtap="ToSubmit">
+        提交
+      </button>
+      <button class="reset" bindtap="ToReset">
+        重置
+      </button>
+    </view>
+  </form> 
+
+</view>
