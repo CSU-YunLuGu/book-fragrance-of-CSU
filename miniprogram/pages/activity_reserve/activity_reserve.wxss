@@ -20,16 +20,24 @@
 .picker{
   width: 100%;
 }
-.submit{
+.bottom{
+  width: 100%;
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 50px;
+  border-radius: 20%;
+}
+.submit{
   height: 80%;
-  width: 20px;
-  font-size: small;
-
+  width: 25%;
+  font-size: xx-small;
 }
 .reset{
-  display: flex;
   height: 80%;
-  width: 20px;
-  font-size: small;
+  width: 25%;
+  font-size: xx-small;
+}
+.button_size{
+  width: 100%;height:100%;font-size: xx-small;
 }
