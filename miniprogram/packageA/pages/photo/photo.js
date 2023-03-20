@@ -1,35 +1,33 @@
-// pages/my/my.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-		color:["orange","purple"],
-        li:[]
+        src:''
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-		console.log('happy')
-        wx.cloud.database().collection('reserve').get()
-      .then(res=>{
-        console.log('请求成功',res)
-        this.setData({
-            li:res.data
-        })
-        console.log(this.data.li)
-    })
-    .catch(err=>{
-        console.log('请求失败',err)
-            wx.showModal({
-                title:'提示',
-                confirmText:'确定',
-                content:'网络异常'
+        if(options.src==1)
+        {
+            this.setData({
+                src : '../../../images/diligent.jpg'
             })
-    })
+        }
+        else if(options.src==2)
+        {
+            this.setData({
+                src : '../../../images/hobby.jpg'
+            })
+        }
+        else{
+            this.setData({
+                src : '../../../images/love.jpg'
+            })
+        }
     },
 
     /**

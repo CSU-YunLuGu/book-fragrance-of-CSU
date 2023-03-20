@@ -9,8 +9,8 @@
   display: flex;
   background-color: rgba(255, 255, 255, 0.699);
   width: 90%;
-  margin-top: 1px;
-  margin-bottom: 2px;
+  margin-top: 2px;
+  margin-bottom: 5px;
 }
 
 .gray_border{
@@ -28,10 +28,18 @@
   text-align: center;
 }
 
+.title{
+	/* font-style: oblique; */
+	/* font-style: italic; */
+	font-size:medium;
+	font-weight: 300;
+}
+
 input{
   border-radius: 4px;
   width: 85%;
-  font-size: small;
+	font-size: small;
+	margin-top: 1px;
 }
 
 .picker{
@@ -40,16 +48,21 @@ input{
   width: 90%;
   background-color: rgba(255, 255, 255, 0.699);
   border: rgba(128, 128, 128, 0.411) 1px solid;
-  padding-top: 3px;
+  padding-top: 4px;
   text-align: center;
-  margin-top: 3px;
+	margin-top: 4px;
+	margin-bottom: 5px;
 }
 
 .summit{
-  width: 65px;
-  background-color: rgba(255, 255, 255, 0.699);
+	border-radius: 3px;
+  width: 80%;
+  color: aliceblue;
+  font-weight: bold;
+  background-color: rgb(114, 162, 235);
+  border: 1px solid gray;
   padding: 5px;
-  margin: 10px auto;
+  margin: 5px auto;
   text-align: center;
 }
 
@@ -60,8 +73,9 @@ checkbox .wx-checkbox-input {
 }
 
 checkbox{
+  margin-top: 6px;
   font-weight: lighter;
-  width: 50%;
+  width: 100%;
 }
 
 .last{

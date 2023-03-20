@@ -321,11 +321,11 @@ Page({
     onLoad(options) {
       if(options.place==1)
       {
-        this.setData({place:"地点1"})
+        this.setData({place:"沙龙室1"})
       }
       else
       {
-        this.setData({place:"地点2"})
+        this.setData({place:"沙龙室2"})
       }
       console.log(this.data.place)
       var date = new Date() 

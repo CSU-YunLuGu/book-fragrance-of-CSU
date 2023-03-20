@@ -1,2 +1,14 @@
-<!--pages/my/my.wxml-->
-<text>pages/my/my.wxml</text>
+<view class="root">
+	<!-- <image class='background-image' src='../../images/back.jpg' mode="aspectFill"></image> -->
+	<view class="content">
+		<view class="title">预约记录</view>
+		<view wx:for="{{li}}">
+		<view class="box {{color[index%2]}}">
+			<view>姓名：{{item.name}}</view>
+			<view>地点：{{item.place}}</view>
+			<view>时间：{{item.date}} {{item.time}}</view>
+		</view>
+		</view>	
+	</view>
+</view>
+

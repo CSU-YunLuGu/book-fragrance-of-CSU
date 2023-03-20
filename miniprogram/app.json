@@ -4,14 +4,17 @@
         "pages/start/start",
         "pages/choose_place/choose_place",
         "pages/activity_reserve/activity_reserve",
-        "pages/my/my"
+        "pages/my/my",
+        "pages/reserve/reserve",
+        "pages/about_us/about_us"
     ],
     "subpackages": [
         {
             "root": "packageA",
             "pages": [
                 "pages/personal_reserve/personal_reserve",
-                "pages/team_reserve/team_reserve"
+                "pages/team_reserve/team_reserve",
+                "pages/photo/photo"
             ]
         }
     ],
@@ -19,26 +22,32 @@
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#F6F6F6",
-        "navigationBarTitleText": "场地预约",
+        "navigationBarTitleText": "书香中南",
         "navigationBarTextStyle": "black"
     },
     "tabBar": {
-        "position": "top",
-        "backgroundColor": "#f8e3eb",
-        "color": "#56a9cf",
+        "position": "bottom",
+        "backgroundColor": "#ffffff",
+        "color": "#070707",
         "selectedColor": "#56a9cf",
         "list": [
             {
-                "pagePath": "pages/choose_place/choose_place",
-                "text": "场地预约"
+                "selectedIconPath": "images/add_select.png",
+                "iconPath": "images/add.png",
+                "pagePath": "pages/reserve/reserve",
+                "text": "预约"
             },
             {
-                "pagePath": "pages/activity_reserve/activity_reserve",
-                "text": "活动预约"
-            },
-            {
+                "iconPath": "images/user.png",
+                "selectedIconPath": "images/user_select.png",
                 "pagePath": "pages/my/my",
-                "text": "我的"
+                "text": "我的预约"
+            },
+            {
+                "iconPath": "images/about.png",
+                "selectedIconPath": "images/about_select.png",
+                "pagePath": "pages/about_us/about_us",
+                "text": "关于我们"
             }
         ]
     },

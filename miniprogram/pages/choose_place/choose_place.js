@@ -5,20 +5,22 @@ Page({
      * 页面的初始数据
      */
     data: {
-        tip:'hide', //tip的class
+        gray_back:'hide', //gray_back的class
         button:'hide', //button按钮的class
         time:5, //倒计时
         time_class:'sure', //time的class
         who:1,  //1为个人，2为团体
         place:1  //地点
     },
-    show_tip:function(e)
+    show_gray_back:function(e)
     {
+      console.log('hadshow')
         this.setData({
-            tip:'tip',
+            gray_back:'gray_back',
             who:e.target.dataset.who,
             place:e.target.dataset.place
         })
+        console.log(this.data.gray_back)
         let interval = setInterval(() => {
           this.setData({
             time:this.data.time-1
@@ -37,7 +39,7 @@ Page({
 
     to_reserve(){
       this.setData({
-        tip:'hide'
+        gray_back:'hide'
     })
       if(this.data.who==1) //个人预约
         {

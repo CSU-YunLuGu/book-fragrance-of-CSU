@@ -7,13 +7,17 @@
 }
 
 .image_use{
-  width: 250px;
-  height: 90px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+  width: 90%;
+  height: 100px;
   background-color: #f8e3eb;
 }
 
 .place{
-  background-color: rgba(255, 255, 255, 0.658);
+	position: relative;
+  border: 1px solid rgba(128, 128, 128, 0.404);
+  background-color: #ffffffa8;
   margin: 15px auto;
   width: 80%;
   display: flex;
@@ -21,17 +25,27 @@
   justify-items: center;
   align-self: center;
   align-items: center;
-  padding: 10px;
-  border-radius: 4px;
+  padding: 15px;
+  border-radius: 10px;
   box-shadow: 4px 4px 2px rgba(155, 153, 153, 0.459);
   /* font-family: cursive; */
   }
 
+.place_name{
+  font-size: large;
+  font-weight: bold;
+}
+
 .people{
+	width: 90%;
   display: flex;
   justify-content: center;
   height: 60px;
-  border-bottom: 1px rgb(170, 167, 167) solid;
+  border-bottom: 1.5px rgba(167, 165, 165, 0.274) solid;
+}
+
+.right_border{
+	border-right:2px rgba(167, 165, 165, 0.274) solid;
 }
 
 .small_flex_box{
@@ -44,40 +58,48 @@
 }
 
 .divide_two{
+	margin-top: 10px;
+	margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
 }
 
 .info{
-  width: 80%;
+  width: 90%;
   border-bottom: 1px rgba(173, 171, 171, 0.308) solid;
   padding: 5px;
 }
 
 .navigator{
+	font-size: small;
   margin: 10px;
   color: white;
   margin-top: 10px;
   border-radius: 2px;
   background-color: #56a9cf;
-  padding: 5px;
+  padding: 8px;
+}
+
+.gray_back{
+  z-index: 90;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(128, 128, 128, 0.514);
 }
 
 .tip{
-  /* font-family: cursive; */
-  position: fixed;
-  /* border-radius: 10px; */
+  position: relative;
   overflow: hidden;
   height: 450px;
-  /* max-height: 450px; */
-  border: 2px solid rgb(141, 156, 156);
-  top: 5%;
+  border: 1px solid rgb(141, 156, 156);
+  top: 7%;
   left: 5%;
   z-index: 100;
   width: 80%;
   background-color: rgba(243, 243, 243, 0.952);
-  padding: 12px;
-  box-shadow: 4px 4px 2px rgba(128, 128, 128, 0.658);
+  padding: 18px;
+  box-shadow: 4px 4px 3px rgba(128, 128, 128, 0.527);
 }
 
 .title{
@@ -89,8 +111,9 @@
 }
 
 .paragragh{
+  width: 95%;
   margin-top: 10px;
-  font-family: 仿宋;
+  /* font-family: 仿宋; */
 }
 
 .hide{
@@ -106,7 +129,7 @@
   color: rgb(255, 255, 255);
   width: 60px;
   margin-top: 20px;
-  background-color: rgb(97, 213, 241);
+  background-color: rgb(73, 196, 226);
 }
 
 .to_font{

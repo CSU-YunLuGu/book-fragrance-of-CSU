@@ -1,0 +1,25 @@
+<view class="root">
+	<view class="content">
+		<navigator class="box purple" url="../../packageA/pages/photo/photo?src=1">
+			<image src="../../images/book_blue.png" class="to_back" mode="aspectFit"></image>
+			<view class="to_font">
+				<view class="big_font">勤读</view>
+				<view class="small_font">查看</view>
+			</view>
+		</navigator>
+		<navigator class="box blue" url="../../packageA/pages/photo/photo?src=2">
+			<image src="../../images/book_orange.png" class="to_back" mode="aspectFit"></image>
+			<view class="to_font">
+				<view class="big_font">善读</view>
+				<view class="small_font">查看</view>
+			</view>
+		</navigator>
+		<navigator class="box orange" url="../../packageA/pages/photo/photo?src=3">
+			<image src="../../images/book_perpul.png" class="to_back" mode="aspectFit"></image>
+			<view class="to_font">
+				<view class="big_font">爱读</view>
+				<view class="small_font">查看</view>
+			</view>
+		</navigator>
+	</view>
+</view>

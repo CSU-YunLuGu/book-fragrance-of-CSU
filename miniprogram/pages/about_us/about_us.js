@@ -1,35 +1,18 @@
-// pages/my/my.js
+// pages/about_us/about_us.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-		color:["orange","purple"],
-        li:[]
+
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-		console.log('happy')
-        wx.cloud.database().collection('reserve').get()
-      .then(res=>{
-        console.log('请求成功',res)
-        this.setData({
-            li:res.data
-        })
-        console.log(this.data.li)
-    })
-    .catch(err=>{
-        console.log('请求失败',err)
-            wx.showModal({
-                title:'提示',
-                confirmText:'确定',
-                content:'网络异常'
-            })
-    })
+
     },
 
     /**

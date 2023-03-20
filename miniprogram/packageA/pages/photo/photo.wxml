@@ -1,0 +1,4 @@
+<view class="bigbox">
+	<image src="{{src}}" class="image" mode="widthFix"></image>
+	<!-- <image src="../../../images/love.jpg"></image> -->
+</view>

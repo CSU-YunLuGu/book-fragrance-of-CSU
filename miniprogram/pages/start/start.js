@@ -33,7 +33,7 @@ Page({
             if(this.data.time==0)
             {
                 wx.switchTab({
-                  url: '../choose_place/choose_place',
+                  url: '../reserve/reserve',
                 })
             }
         }, 1000);

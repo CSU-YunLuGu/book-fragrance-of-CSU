@@ -1,1 +1,44 @@
-/* pages/my/my.wxss */
+.one{
+	margin: 0 auto;
+	border: 1px solid gray;
+	width: 80%;
+	border-radius: 10px;
+}
+
+.title{
+	box-shadow: 4px 4px 1px rgba(128, 128, 128, 0.63);
+	border-radius: 7px;
+	margin: 0 auto;
+	margin-top: 20px;
+	padding: 16px;
+	width: 70%;
+	color: honeydew;
+	background-color: #89e5eb;
+	font-size: x-large;
+	font-weight:900;
+	text-align: center;
+}
+
+.purple{
+	background-color: rgb(183, 149, 236);
+	/* color: rgb(183, 149, 236); */
+}
+
+.orange{
+	/* color: rgb(252, 174, 86); */
+	background-color: rgb(252, 174, 86);
+}
+
+.box{
+	color: honeydew;
+	font-weight: bold;
+	position: relative;
+	border-radius: 5px;
+	box-shadow: 4px 4px 1px rgba(128, 128, 128, 0.486);
+	margin: 20px auto;
+	/* text-align: center; */
+	width: 72%;
+	padding: 6%;
+	height: 60px;
+	overflow: hidden;
+}
