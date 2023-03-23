@@ -1,56 +1,57 @@
 {
-    "cloud": true,
-    "pages": [
-        "pages/start/start",
-        "pages/choose_place/choose_place",
-        "pages/activity_reserve/activity_reserve",
-        "pages/my/my",
-        "pages/reserve/reserve",
-        "pages/about_us/about_us"
-    ],
-    "subpackages": [
-        {
-            "root": "packageA",
-            "pages": [
-                "pages/personal_reserve/personal_reserve",
-                "pages/team_reserve/team_reserve",
-                "pages/photo/photo"
-            ]
-        }
-    ],
-    "lazyCodeLoading": "requiredComponents",
-    "window": {
-        "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#F6F6F6",
-        "navigationBarTitleText": "书香中南",
-        "navigationBarTextStyle": "black"
-    },
-    "tabBar": {
-        "position": "bottom",
-        "backgroundColor": "#ffffff",
-        "color": "#070707",
-        "selectedColor": "#56a9cf",
-        "list": [
-            {
-                "selectedIconPath": "images/add_select.png",
-                "iconPath": "images/add.png",
-                "pagePath": "pages/reserve/reserve",
-                "text": "预约"
-            },
-            {
-                "iconPath": "images/user.png",
-                "selectedIconPath": "images/user_select.png",
-                "pagePath": "pages/my/my",
-                "text": "我的预约"
-            },
-            {
-                "iconPath": "images/about.png",
-                "selectedIconPath": "images/about_select.png",
-                "pagePath": "pages/about_us/about_us",
-                "text": "关于我们"
-            }
-        ]
-    },
-    "sitemapLocation": "sitemap.json",
-    "style": "v2"
+  "cloud": true,
+  "pages": [
+    "pages/start/start",
+    "pages/choose_place/choose_place",
+    "pages/activity_reserve/activity_reserve",
+    "pages/my/my",
+    "pages/reserve/reserve",
+    "pages/about_us/about_us",
+    "pages/activities/activities"
+  ],
+  "subpackages": [
+    {
+      "root": "packageA",
+      "pages": [
+        "pages/personal_reserve/personal_reserve",
+        "pages/team_reserve/team_reserve",
+        "pages/photo/photo"
+      ]
+    }
+  ],
+  "lazyCodeLoading": "requiredComponents",
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "书香中南",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "position": "bottom",
+    "backgroundColor": "#ffffff",
+    "color": "#070707",
+    "selectedColor": "#56a9cf",
+    "list": [
+      {
+        "selectedIconPath": "images/add_select.png",
+        "iconPath": "images/add.png",
+        "pagePath": "pages/reserve/reserve",
+        "text": "预约"
+      },
+      {
+        "iconPath": "images/user.png",
+        "selectedIconPath": "images/user_select.png",
+        "pagePath": "pages/my/my",
+        "text": "我的预约"
+      },
+      {
+        "iconPath": "images/about.png",
+        "selectedIconPath": "images/about_select.png",
+        "pagePath": "pages/about_us/about_us",
+        "text": "关于我们"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
 }

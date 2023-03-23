@@ -1,4 +1,8 @@
 /**index.wxss**/
+.root{
+  background-color: rgb(214, 213, 213);
+  height: 100%;
+}
 .parter{
   height: 40px;
   border-bottom: 1px lightgray solid;
@@ -12,32 +16,64 @@
   margin-top: 10px;
   align-items: center;
   text-align: justify;
+  width: 25%;
+  font-weight: 750;
 }
 .input-border{
   margin-top: 10px;
-  
+  font-size: smaller;
+  font-weight: 500;
 }
 .picker{
   width: 100%;
 }
 .bottom{
-  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   height: 50px;
+  width: 95%;
   border-radius: 20%;
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  position: fixed;
+  bottom: 0;
 }
 .submit{
   height: 80%;
-  width: 25%;
-  font-size: xx-small;
+  width: 100%;
+  font-size: xx-large;
+  font-weight: 500;
+  background-color:rgb(47, 193, 245),
 }
 .reset{
   height: 80%;
-  width: 25%;
+  width: 100%;
   font-size: xx-small;
+  background-color: #56a9cf;
 }
-.button_size{
-  width: 100%;height:100%;font-size: xx-small;
+.background-image{
+  background-color: transparent;
+  z-index: -1;
+  box-shadow: 3px 3px 2px rgba(128, 128, 128, 0.548);
+  /* border-radius: 5px; */
+  width: 94%; 
+  height: 1500rpx;
+   position: fixed;
+   opacity: 0.5;
+   left: 3%;
+   top: 0px;
+}
+.choose{
+  margin-left: 0px;
+  margin-right: 10px;
+  margin-top: 10px;
+  align-items: center;
+  text-align: justify;
+  font-size: small;
+  font-weight: 500;
+}
+.form_body{
+  background-color: white;
 }

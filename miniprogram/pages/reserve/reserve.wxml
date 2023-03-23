@@ -7,7 +7,7 @@
 				<view class="small_font">现在预约>></view>
 			</view>
 		</navigator>
-		<navigator class="box blue" url="../activity_reserve/activity_reserve">
+		<navigator class="box blue" url="../activities/activities">
 			<image src="../../images/activity.png" class="to_back" mode="aspectFit"></image>
 			<view class="to_font">
 				<view class="big_font">活动预约</view>

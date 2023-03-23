@@ -1,74 +1,90 @@
 <!--index.wxml-->
-<view class="page_body">
-  <form >
-    <view class="parter">
-      <view class="section_title">
-        学院
+<view class="root">
+  <view class="form_body">
+    <form >
+      <view class="parter">
+        <view class="section_title">
+          学院
+        </view>
+        <picker mode="selector" range="{{academy}}" bindchange="bindPickerChange">
+          <view class="choose" >
+            {{ifactive_academy}}
+          </view>
+        </picker>
       </view>
-      <picker mode="selector" range="{{academy}}" bindchange="bindPickerChange">
+      <view class="parter">
         <view class="section_title" >
-          {{ifactive_academy}}
+          用途
         </view>
-      </picker>
-    </view>
-    <view class="parter">
-      <view class="section_title" >
-        用途
+        <input class="input-border" id="purposes" placeholder="请输入用途" bindinput="InputPurpose"/>
       </view>
-      <input class="input-border" id="purposes" placeholder="请输入用途" bindinput="InputPurpose"/>
-    </view>
-    <view class="parter">
-      <view class="section_title" >
-        辅导员姓名
-      </view>
-      <input class="input-border" id="counselor" placeholder="请确认已获得辅导员许可" bindinput="InputCounselor"/>
-    </view>
-    <view class="parter">
-      <view class="section_title" >
-        联系人
-      </view>
-      <input class="input-border" id="contact" placeholder="请输入联系人姓名" bindinput="InputContact"/>
-    </view>
-    <view class="parter">
-      <view class="section_title" >
-        联系方式
-      </view>
-      <input class="input-border" id="contact_information" placeholder="请输入手机号" bindinput="InputContact_information"/>
-    </view>
-    <view class="parter">
-      <view class="section_title" >
-        主持人
-      </view>
-      <input class="input-border" id="host" placeholder="请输入主持人姓名" bindinput="InputHost"/>
-    </view>
-    <view class="parter">
-      <view class="section_title" >
-        活动人数
-      </view>
-      <input class="input-border" id="number_of_people" placeholder="请输入活动人数"/>
-    </view>
-    <view class="parter">
-      <view class="section_title">
-        日期
-      </view>
-      <picker mode="date" range="{{date}}" bindchange="bindPickerDate">
+      <view class="parter">
         <view class="section_title" >
-          {{ifactive_date}} 
+          辅导员姓名
         </view>
-      </picker>
-    </view>
-    <view class="bottom">
-        <view class="submit">
-          <button  bindtap="ToSubmit" style="width: 100%;height:100%;font-size: xx-small;">
-            提交
-          </button>
+        <input class="input-border" id="counselor" placeholder="请确认已获得辅导员许可" bindinput="InputCounselor"/>
+      </view>
+      <view class="parter">
+        <view class="section_title" >
+          联系人
         </view>
-        <view class="reset">
-          <button  bindtap="ToReset" style="width: 100%;height:100%;font-size: xx-small;">
-            重置
-          </button>
+        <input class="input-border" id="contact" placeholder="请输入联系人姓名" bindinput="InputContact"/>
+      </view>
+      <view class="parter" >
+        <view class="section_title" >
+          联系方式
         </view>
-    </view>
-  </form> 
-
+        <input class="input-border" style="color:{{warn_Contact_information}}" placeholder="请输入手机号" bindblur="InputContact_information"/>
+      </view>
+      <view class="parter">
+        <view class="section_title" >
+          主持人
+        </view>
+        <input class="input-border" id="host" placeholder="请输入主持人姓名" bindinput="InputHost"/>
+      </view>
+      <view class="parter">
+        <view class="section_title" >
+          活动人数
+        </view>
+        <input class="input-border "  id="number_of_people" placeholder="请输入活动人数" bindinput="InputNumber_of_people"/>
+      </view>
+      <view class="parter">
+        <view class="section_title">
+          日期
+        </view>
+        <picker mode="date" range="{{date}}" bindchange="bindPickerDate" start="{{nowdate}}" end="{{enddate}}">
+          <view class="choose" >
+            {{ifactive_date}} 
+          </view>
+        </picker>
+      </view>
+      <view class="parter">
+        <view class="section_title">
+          开始节次
+        </view>
+        <picker mode="selector" range="{{session}}" bindchange="bindPickerSessionStart">
+          <view class="choose" >
+            {{ifactive_session_start}}
+          </view>
+        </picker>
+      </view>
+      <view class="parter">
+        <view class="section_title">
+          结束节次
+        </view>
+        <picker mode="selector" range="{{session}}" bindchange="bindPickerSessionEnd">
+          <view class="choose" >
+            {{ifactive_session_end}}
+          </view>
+        </picker>
+      </view>
+            <view class="bottom">
+                <view class="submit">
+                  <button  bindtap="ToSubmit" style="width: 100%;height:100%;font-size: large;background-color:rgb(73, 196, 226)" form-type="submit">
+                    提交
+                  </button>
+                </view>
+            </view>
+    </form> 
+  </view>
 </view>
