@@ -92,6 +92,12 @@ Page({
     if(e.detail.value.length!=11&&e.detail.value.length!=0){
       this.setData({
         warn_Contact_information:'red',
+        
+      })
+      wx.showModal({
+        title: '提示',
+        content: '你所填写的手机号错误',
+        
       })
     }
     else{
