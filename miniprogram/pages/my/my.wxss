@@ -42,3 +42,63 @@
 	height: 60px;
 	overflow: hidden;
 }
+
+.detail{
+	font-weight: lighter;
+	text-align: center;
+	position: relative;
+	overflow: hidden;
+	height: 340px;
+	border-radius: 5px;
+	border: 1px solid rgb(141, 156, 156);
+	top: 50px;
+	left: 15%;
+	z-index: 100;
+	width: 60%;
+	background-color: rgb(255, 255, 255);
+	padding: 18px;
+	box-shadow: 4px 4px 3px rgba(128, 128, 128, 0.527);
+  }
+
+  .title2{
+	text-align: center;
+	padding-bottom: 8px;
+	border-bottom: 1px solid gray;
+	font-weight: bold;
+	font-size:15px;
+  }
+  
+  .paragragh{
+	width: 95%;
+	margin-top: 10px;
+	/* font-family: 仿宋; */
+  }
+
+  .to_font{
+	width: 92%;
+	position: absolute;
+  }
+
+  .hide{
+	display: none;
+  }
+
+  .button{
+	margin: 0 auto;
+	text-align: center;
+	padding: 7px;
+	border-radius: 5px;
+	border: 1px solid gray;
+	color: rgb(255, 255, 255);
+	width: 65px;
+	margin-top: 20px;
+	background-color: rgb(73, 196, 226);
+  }
+
+  .mask{
+	z-index: 90;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(128, 128, 128, 0.514);
+  }

@@ -1,7 +1,7 @@
 <!--pages/start/start.wxml-->
 <view class="root1">
 <!-- 背景图片 -->
-  <image class='background' src='../../images/start.jpg' mode="widthFix"></image>
+  <image class='background' src='../../images/start1.jpg' mode="widthFix"></image>
  <!-- 页面内容 -->
   <view class="content">
     <view class="timer">{{time}}</view>

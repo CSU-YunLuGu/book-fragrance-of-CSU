@@ -80,7 +80,7 @@
       </view>
     </view>
   </view>
-  </view>
+</view>
   <view class="{{gray_back}}">
     <view class="tip">
       <image src="../../images/logo1.png" class="to_back"></image>
@@ -94,4 +94,4 @@
         <view class="{{button}}" bindtap="to_reserve">已知晓</view>
       </view>
     </view>
-</view>
+  </view>
