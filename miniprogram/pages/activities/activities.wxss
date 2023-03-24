@@ -38,6 +38,9 @@
 	color: black(255, 255, 255);
 	font-size: x-large;
 	font-weight: bold;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .small_font{
@@ -67,7 +70,7 @@
 }
 
 .to_font{
-	width: 92%;
+	width: 100%;
 	position: absolute;
   }
   
