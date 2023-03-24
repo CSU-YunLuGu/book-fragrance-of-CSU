@@ -181,6 +181,7 @@ Page({
               studdentId:this.data.id,
               time: temp,
               useage: this.data.useage,
+              model:'个人'
             }
           }).then(res=>{
             this.sub_place_day_last(this.data.time_name_arr[k])  //提交数据到place_day_last
@@ -198,7 +199,7 @@ Page({
               if(res.confirm)
               {
                 wx.reLaunch({
-                  url: '../../../pages/choose_place/choose_place',
+                  url: '../../../pages/my/my',
                 })
               }
             }
@@ -466,7 +467,7 @@ function show_err(){
       if(res.confirm)
       {
         wx.reLaunch({
-          url: '../../../pages/choose_place/choose_place',
+          url: '../../../pages/reserve/reserve',
         })
         
       }
