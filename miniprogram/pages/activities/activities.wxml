@@ -1,6 +1,6 @@
 <view class="root">
 	<view class="content">
-		<navigator class="box orange" url="../activity_reserve/activity_reserve" hidden="true">
+		<navigator class="box orange" url="../activity_reserve/activity_reserve">
 			<image src="../../images/activity.png" class="to_back" mode="aspectFit"></image>
 			<view class="to_font">
 				<view class="big_font">当前活动</view>

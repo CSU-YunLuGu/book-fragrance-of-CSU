@@ -1,7 +1,6 @@
 <!--index.wxml-->
 <view class="root">
   <view class="form_body">
-    <form >
       <view class="parter">
         <view class="section_title">
           学院
@@ -78,13 +77,31 @@
           </view>
         </picker>
       </view>
-            <view class="bottom">
-                <view class="submit">
-                  <button  bindtap="ToSubmit" style="width: 100%;height:100%;font-size: large;background-color:rgb(73, 196, 226)" form-type="submit">
-                    提交
-                  </button>
-                </view>
+      <checkbox-group class="info" bindchange="change_agree">
+        <checkbox checked="{{agree}}">
+          <view class="info" bindtap="show_agreement">已阅读并同意信息收集协议</view>
+        </checkbox>
+      </checkbox-group>
+        <view class="bottom">
+            <view class="submit">
+              <button  bindtap="ToSubmit" style="color: aliceblue; width: 100%;height:100%;font-size: large;background-color:rgb(73, 196, 226)" form-type="submit">
+                提交
+              </button>
             </view>
-    </form> 
+        </view>
   </view>
+</view>
+
+<view class="{{agreement}}">
+      <view class="detail">
+        <image src="../../images/logo1.png" class="to_back"></image>
+        <view class="to_font">
+          <view class="title1">信息收集须知</view>
+          <view class="paragragh">请仔细阅读并理解全部内容之后，决定是否同意并使用本预约系统的各项服务：如果您仍决定使用本预约系统的各项功能，则视为您同意本程序收集您在表格内填入的信息</view>
+          <view class="paragragh">1.您的信息将只有您与管理员可读，管理员将会尽力保证您的隐私安全</view>
+          <view class="paragragh">2.取消预约后，您的预约信息将被删除</view>
+          <view class="paragragh">3.管理员需依据您填入的信息对预约教室进行管理（如预约的教室因特殊情况不可用时打电话通知您）</view>
+          <view class="sure" bindtap="hide_agreement">已知晓</view>
+        </view>
+      </view>
 </view>

@@ -14,7 +14,7 @@
 }
 
 .gray_border{
-  border: rgba(128, 128, 128, 0.411) 1px solid;
+  border: rgba(146, 215, 241, 0.411) 1px solid;
 }
 
 .red_border{
@@ -47,7 +47,7 @@ input{
   font-weight: lighter;
   width: 90%;
   background-color: rgba(255, 255, 255, 0.699);
-  border: rgba(128, 128, 128, 0.411) 1px solid;
+  border: rgba(146, 215, 241, 0.411) 1px solid;
   padding-top: 4px;
   text-align: center;
 	margin-top: 4px;
@@ -60,7 +60,7 @@ input{
   color: aliceblue;
   font-weight: bold;
   background-color: rgb(114, 162, 235);
-  border: 1px solid gray;
+  border: 1px solid rgba(146, 215, 241, 0.411);
   padding: 5px;
   margin: 5px auto;
   text-align: center;
@@ -82,4 +82,75 @@ checkbox{
 .last{
   font-size: small;
   color: rgb(54, 54, 54);
+}
+
+.info{
+  /* font-size: small; */
+  color: rgb(35, 20, 247);
+  text-align: center;
+  text-decoration:rgb(35, 20, 247) underline;
+}
+
+.agreement{
+  z-index: 90;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(128, 128, 128, 0.514);
+}
+
+.detail{
+  position: relative;
+  overflow: hidden;
+  height: 450px;
+  border: 1px solid rgb(141, 156, 156);
+  top: 7%;
+  left: 5%;
+  z-index: 100;
+  width: 80%;
+  background-color: rgba(243, 243, 243, 0.952);
+  padding: 18px;
+  box-shadow: 4px 4px 3px rgba(128, 128, 128, 0.527);
+}
+
+.title1{
+  text-align: center;
+  padding-bottom: 8px;
+  border-bottom: 1px solid gray;
+  font-weight: bold;
+  font-size:15px;
+}
+
+.paragragh{
+  width: 95%;
+  margin-top: 15px;
+  /* font-family: 仿宋; */
+}
+
+.to_font{
+  width: 92%;
+  position: absolute;
+}
+
+.to_back{
+  top: 20%;
+  opacity: 0.25;
+  position: absolute;
+  width: 90%;
+}
+
+.sure{
+  margin: 0 auto;
+  text-align: center;
+  padding: 7px;
+  border-radius: 5px;
+  /* border: 1px solid gray; */
+  color: rgb(255, 255, 255);
+  width: 60px;
+  margin-top: 50px;
+  background-color: rgb(73, 196, 226);
+}
+
+.hide{
+  display: none;
 }

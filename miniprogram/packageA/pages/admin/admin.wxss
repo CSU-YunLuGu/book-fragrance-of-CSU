@@ -1,0 +1,84 @@
+.title{
+	box-shadow: 4px 4px 1px rgba(128, 128, 128, 0.63);
+	border-radius: 7px;
+	margin: 0 auto;
+  margin-top: 20px;
+	padding: 16px;
+	width: 70%;
+	color: honeydew;
+	background-color: #89e5eb;
+	font-size: x-large;
+	font-weight:900;
+	text-align: center;
+}
+
+.picker{
+  color:white;
+  margin: 0 auto;
+  border-radius: 4px;
+  font-weight: bold;
+  width: 90%;
+  background-color: rgb(252, 174, 86);
+  border: rgb(252, 174, 86) 2px solid;
+  padding-top: 4px;
+  text-align: center;
+	margin-top: 4px;
+  margin-bottom: 5px;
+  box-shadow: 3px 3px 1px rgba(128, 128, 128, 0.63);
+}
+
+.time_choser{
+  text-align: center;
+  font-weight: lighter;
+  margin: 0 auto;
+  margin-top: 10px;
+  width: 90%;
+}
+
+.divide_two{
+  color: rgb(255, 255, 255);
+  margin: 0 auto;
+  width: 60%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.chose_place{
+	font-size: small;
+  margin: 10px;
+  color: white;
+  margin-top: 10px;
+  border-radius: 2px;
+  background-color: #56a9cf;
+  padding: 8px;
+}
+
+.time_table{
+  /* padding-top: 8px;
+  padding-bottom: 4px; */
+  color: rgb(255, 255, 255);
+  margin: 0 auto;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.time{
+  border-radius: 4px;
+  padding: 4px;
+  text-align: center;
+  width: 50%;
+  background-color: rgb(252, 174, 86);
+  border: 1px solid white;
+}
+
+.val{
+  border-radius: 4px;
+  padding: 4px;
+  text-align: center;
+  width: 50%;
+  background-color: #5ac6cf;
+  border: 1px solid white;
+}

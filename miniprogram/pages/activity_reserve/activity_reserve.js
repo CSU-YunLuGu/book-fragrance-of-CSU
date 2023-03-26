@@ -25,8 +25,10 @@ Page({
       host:'',
       number_of_people:'',
       warn_Contact_information:'black',
-      class_arr:['gray_border','gray_border','rad_font','gray_border','gray_border','gray_border'] //输入框的class
-  },
+      class_arr:['gray_border','gray_border','rad_font','gray_border','gray_border','gray_border'] ,//输入框的class
+      agreement:'hide',
+      agree:0,
+    },
   onLoad:function(options){  
     console.log(new Date().toJSON().substring(0, 10) + ' ' + new Date().toTimeString().substring(0,8)),
     console.log(this.data.nowdata),
@@ -134,8 +136,15 @@ Page({
     }
   },
   ToSubmit: function(e){
-      console.log('点击提交')
-      if(this.data.purpose!=''
+    console.log('点击提交')
+    if(this.data.agree==0)
+    {
+      wx.showModal({
+        title: '提示',
+        content: '请阅读信息收集协议',
+      })
+    }
+     else if(this.data.purpose!=''
       &&this.data.ifactive_date!="请选择日期"
       &&this.data.counselor!=''
       &&this.data.contact!=''
@@ -189,5 +198,28 @@ Page({
   },
   ToReset: function(e){
       console.log('点击重置')
-  }
+  },
+
+  show_agreement:function(){
+    this.setData({
+      agreement:'agreement'
+    })
+  },
+  
+  hide_agreement:function(){
+  this.setData({
+    agreement:'hide'
+  })
+  },
+  
+  change_agree:function(e){
+  // console.log(e.detail.value.length)
+  this.setData({
+    agree:e.detail.value.length
+  })
+  console.log(this.data.agree)
+  },
 })
+
+
+

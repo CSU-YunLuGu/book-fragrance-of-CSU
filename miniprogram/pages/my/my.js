@@ -5,21 +5,24 @@ Page({
      * 页面的初始数据
      */
     data: {
-		color:["orange","purple"],
+      openid:'',
+		  color:["orange","purple"],
         li:[],
-        detail:'hide',
+        mask:'hide',
         name:'',
         phone:'',
         place:'',
         date:'',
         time:'',
         id:'',
-        model:''
+        model:'',
+        admin:'hide',
+        password:'',
+        real_password:'abcdef',
+        try_time:0,
     },
 
     show_detail : function(e){
-        // console.log(e.target.dataset.index)
-        // console.log(this.data.li[e.target.dataset.index])
         this.setData({
             name: this.data.li[e.target.dataset.index].name,
             phone: this.data.li[e.target.dataset.index].phone,
@@ -28,13 +31,13 @@ Page({
             time: this.data.li[e.target.dataset.index].time,
             id: this.data.li[e.target.dataset.index]._id,
             model: this.data.li[e.target.dataset.index].model,
-            detail:'mask'
+            mask:'mask'
         })
     },
 
     hide_detail:function(){
         this.setData({
-            detail: 'hide'
+           mask: 'hide'
         })
     },
 
@@ -91,11 +94,67 @@ Page({
       })
     },
 
+    add_password:function(e) //获取职工号
+    {
+      this.setData({
+        password: e.detail.value
+      })
+    },
+
+    to_admin:function(){
+      if(this.data.password==this.data.real_password)
+      {
+        wx.navigateTo({
+          url: '../../packageA/pages/admin/admin',
+        })
+      }
+      else{
+        this.setData({
+          try_time:this.data.try_time+1,
+          admin:'hide'
+        })
+        wx.showModal({
+          title:'提示',
+          confirmText:'确定',
+          content:'密码错误'+this.data.try_time+'次，连续错误5次后页面将被锁定',
+        })
+      }
+    },
+
+    cancel:function(){
+      this.setData({
+        admin:'hide'
+      })
+    },
+
+    show_admin:function(){
+      if(this.data.try_time<5)
+      {
+        this.setData({
+          admin:'admin'
+        })
+      }
+      else{
+        wx.showModal({
+          title:'提示',
+          confirmText:'确定',
+          content:'您已输错密码五次，管理员界面已被锁定',
+        })
+      }
+    },
+
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        wx.cloud.database().collection('reserve').get()
+      const app = getApp();
+      this.setData({
+        openid:app.globalData.openid,
+      })
+      console.log('启动者为',this.data.openid)
+        wx.cloud.database().collection('reserve').where({
+          _openid:this.data.openid
+        }).get()
       .then(res=>{
         console.log('请求成功',res)
         this.setData({

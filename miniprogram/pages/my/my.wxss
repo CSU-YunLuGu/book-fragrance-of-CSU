@@ -54,9 +54,11 @@
 	top: 50px;
 	left: 15%;
 	z-index: 100;
-	width: 60%;
+	width: 70%;
 	background-color: rgb(255, 255, 255);
-	padding: 18px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	/* padding: 15px; */
 	box-shadow: 4px 4px 3px rgba(128, 128, 128, 0.527);
   }
 
@@ -77,6 +79,7 @@
   .to_font{
 	width: 92%;
 	position: absolute;
+	left: 4%;
   }
 
   .hide{
@@ -101,4 +104,40 @@
 	height: 100%;
 	width: 100%;
 	background-color: rgba(128, 128, 128, 0.514);
+  }
+
+  .admin{
+	z-index: 90;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(128, 128, 128, 0.514);
+  }
+
+  input{
+	  margin: 0 auto;
+	  margin-top: 30px;
+	  padding: 5px;
+	  width: 80%;
+	  background-color: rgba(252, 174, 86, 0.548);
+	  border-radius: 4px;
+  }
+
+  .admin_detail{
+	font-weight: lighter;
+	text-align: center;
+	position: relative;
+	overflow: hidden;
+	height: 240px;
+	border-radius: 5px;
+	border: 1px solid rgb(141, 156, 156);
+	top: 50px;
+	left: 15%;
+	z-index: 100;
+	width: 70%;
+	background-color: rgb(255, 255, 255);
+	padding-top: 15px;
+	padding-bottom: 15px;
+	/* padding: 15px; */
+	box-shadow: 4px 4px 3px rgba(128, 128, 128, 0.527);
   }

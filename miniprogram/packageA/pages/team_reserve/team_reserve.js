@@ -5,6 +5,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+      openid:'',
       if_err:0, //是否出现错误
       place:'', //预约地点
       disabled:false,//是否对全部多选框开启禁用状态
@@ -25,7 +26,9 @@ Page({
       time_select:[{time:"09:10~09:50",disabled:false},//time为时间段，checke为是否选中，disabled为是否禁用
       {time:"10:00~10:40",disabled:false},{time:"11:00~11:40",disabled:false},{time:"14:00~14:40",disabled:false},{time:"15:00~15:40",disabled:false},{time:"16:00~16:40",disabled:false},{time:"17:00~17:40",disabled:false},{time:"19:00~19:40",disabled:false},{time:"20:00~20:40",disabled:false},{time:"21:00~22:20",disabled:false}],
       lasted:[30,30,30,30,30,30,30,30,30,30], //剩余数量
-      class_arr:['gray_border','gray_border','gray_border','gray_border','gray_border','gray_border'] //输入框的class
+      class_arr:['gray_border','gray_border','gray_border','gray_border','gray_border','gray_border'], //输入框的class
+      agreement:'hide',
+      agree:0,
     },
 
     add_class:function(e) //获取单位
@@ -168,55 +171,64 @@ Page({
     },
 
     //提交表单
-    submit:function(){  
-      if(this.data.name&&this.data.class&&this.data.id&&this.data.phone&&this.data.mail&&this.data.useage&&this.data.time_num)
-      {
-        for(let k=0;k<this.data.time_num;k++){  //提交数据给reserve数据库
-          var temp=this.data.time_select[this.data.time_arr[k]].time
-          wx.cloud.database().collection('reserve').add({
-            data:{
-              class: this.data.class,
-              date: this.data.date,
-              mail:this.data.mail,
-              name:this.data.name,
-              phone:this.data.phone,
-              place:this.data.place,
-              studdentId:this.data.id,
-              time: temp,
-              useage: this.data.useage,
-              model: '团体',
-            }
-          }).then(res=>{
-            this.sub_place_day_last(this.data.time_name_arr[k])  //提交数据到place_day_last
-          }).catch(err=>{
-            console.log('错误',err)
-            show_err()
-          })
-        }
-        this.add_had_reserve() //提交数据到had_reserve数据库
-          wx.showModal({
-            title:'提示',
-            confirmText:'确定',
-            content:'成功',
-            success:function(res){
-              if(res.confirm)
-              {
-                wx.reLaunch({
-                  url: '../../../pages/my/my',
-                })
-              }
-            }
-          })
-      }
-      else
+    submit:function(){
+      if(this.data.agree==0)
       {
         wx.showModal({
           title:'提示',
           confirmText:'确定',
-          content:'请将所有选项填写完毕'
+          content:'同意用户隐私协议后才可使用'
         })
       }
-      
+      else{
+        if(this.data.name&&this.data.class&&this.data.id&&this.data.phone&&this.data.mail&&this.data.useage&&this.data.time_num)
+        {
+          for(let k=0;k<this.data.time_num;k++){  //提交数据给reserve数据库
+            var temp=this.data.time_select[this.data.time_arr[k]].time
+            wx.cloud.database().collection('reserve').add({
+              data:{
+                class: this.data.class,
+                date: this.data.date,
+                mail:this.data.mail,
+                name:this.data.name,
+                phone:this.data.phone,
+                place:this.data.place,
+                studdentId:this.data.id,
+                time: temp,
+                useage: this.data.useage,
+                model: '团体',
+              }
+            }).then(res=>{
+              this.sub_place_day_last(this.data.time_name_arr[k])  //提交数据到place_day_last
+            }).catch(err=>{
+              console.log('错误',err)
+              show_err()
+            })
+          }
+          this.add_had_reserve() //提交数据到had_reserve数据库
+            wx.showModal({
+              title:'提示',
+              confirmText:'确定',
+              content:'成功',
+              success:function(res){
+                if(res.confirm)
+                {
+                  wx.reLaunch({
+                    url: '../../../pages/my/my',
+                  })
+                }
+              }
+            })
+        }
+        else
+        {
+          wx.showModal({
+            title:'提示',
+            confirmText:'确定',
+            content:'请将所有选项填写完毕'
+          })
+        }
+      }
     },
 
     // 连接数据库,获取每个时间段剩余人数
@@ -281,6 +293,7 @@ Page({
     get_my:function(){  //获取我已预约过的时间
       let temp=[false,false,false,false,false,false,false,false,false,false]//记录每个时间段是否被预约过
       wx.cloud.database().collection('reserve').where({
+        _openid:this.data.openid,
         date : this.data.date
       }).get().then(res=>{
         for(let i=0;i<res.data.length;i++)
@@ -312,8 +325,6 @@ Page({
             content:'你已预约过四个场地'
           })
         }
-        // console.log(this.data.had_reserve)
-        // console.log(res.data.length)
         console.log("设置成功")
       }).catch(err=>{
         show_err()
@@ -329,10 +340,34 @@ Page({
       this.get_my()
     },
 
+    show_agreement:function(){
+      this.setData({
+        agreement:'agreement'
+      })
+    },
+
+    hide_agreement:function(){
+      this.setData({
+        agreement:'hide'
+      })
+    },
+
+    change_agree:function(e){
+      // console.log(e.detail.value.length)
+      this.setData({
+        agree:e.detail.value.length
+      })
+      console.log(this.data.agree)
+    },
+
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
+      const app = getApp();
+      this.setData({
+        openid:app.globalData.openid,
+      })
       if(options.place==1)
       {
         this.setData({place:"沙龙室1"})
@@ -430,6 +465,14 @@ function get_tomorrow(year,month,day){
       }
     }
     month++
+    if(month<10)
+    {
+      month='0'+month
+    }
+    if(day<10)
+    {
+      day='0'+day
+    }
     return year+'-'+month+'-'+day
 }
 
@@ -473,6 +516,14 @@ function get_endday(year,month,day,num){
     }
   }
   month++
+  if(month<10)
+    {
+      month='0'+month
+    }
+    if(day<10)
+    {
+      day='0'+day
+    }
   return year+'-'+month+'-'+day
 }
 
