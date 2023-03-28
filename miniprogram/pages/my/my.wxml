@@ -32,7 +32,7 @@
 	<view class="admin_detail">
 		<view class="to_font">
 		<view class="title2">管理员密码</view>
-		<input bindinput="add_password" type="text"/>
+		<input bindinput="add_password" type="password"/>
 		<view class="button" bindtap="to_admin">确定</view>
 		<view class="button" bindtap="cancel">取消</view>
 		</view>

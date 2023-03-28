@@ -10,7 +10,6 @@
 	font-weight:900;
   text-align: center;
   margin-bottom: 30px;
-  font-size: larger;
 }
 
 .detail{
@@ -84,9 +83,6 @@
     width: 90%;
     display: flex;
     justify-content: space-between;
-    font-size: large;
-    /* font-weight: lighter; */
-    color: rgb(255, 255, 255);
   }
 
   .time{
@@ -95,8 +91,7 @@
     text-align: center;
     width: 50%;
     background-color: rgb(252, 174, 86);
-    /* background-color: rgb(238, 149, 46); */
-    border: 1px solid #b3b3b3;
+    border: 1px solid white;
   }
   
   .val{
@@ -105,9 +100,5 @@
     text-align: center;
     width: 50%;
     background-color: #5ac6cf;
-    border: 1px solid #b3b3b3;
-  }
-
-  .nothing{
-    height: 30px;
+    border: 1px solid white;
   }

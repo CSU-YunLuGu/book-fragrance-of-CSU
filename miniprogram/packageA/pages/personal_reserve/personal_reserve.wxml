@@ -3,7 +3,7 @@
   <image class='background-image' src='../../../images/back.png' mode="aspectFill"></image>
   <view class="content">
     <view class="table">
-      <view class="title">单位</view>
+      <view class="title">单位/班级</view>
       <view class="inputer {{class_arr[0]}}">
         <view class="pre_position">*</view>
         <input bindinput="add_class" type="text" data-index="0" bindblur="change_color"/>
@@ -13,7 +13,7 @@
         <view class="pre_position">*</view>
         <input bindinput="add_name" type="text" data-index="1" bindblur="change_color"/>
       </view>
-      <view class="title">职工号</view>
+      <view class="title">职工号/学号</view>
       <view class="inputer {{class_arr[2]}}">
         <view class="pre_position">*</view>
         <input bindinput="add_id" type="text" data-index="2" bindblur="change_color"/>

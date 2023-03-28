@@ -17,6 +17,7 @@
                 "pages/team_reserve/team_reserve",
                 "pages/photo/photo",
                 "pages/admin/admin",
+                "pages/day_reserver/day_reserver",
                 "pages/all_reserver/all_reserver"
             ]
         }

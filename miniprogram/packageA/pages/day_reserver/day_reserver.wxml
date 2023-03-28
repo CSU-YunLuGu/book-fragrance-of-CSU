@@ -1,29 +1,16 @@
 <view class="root">
 	<view class="content">
 		<view class="title" bindlongpress="show_admin">
-      <view>预约总名单</view>
+      <view>地点：{{page_place}}</view>
+      <view>日期：{{page_date}}</view>
+      <view>时间段：{{page_time}}</view>
     </view>
-      <view class="time_table">
-        <view class="time" data-index="{{index}}">
-          <view>姓名</view>
-        </view>
-        <view class="val" data-index="{{index}}">
-          <view>预约日期</view>
-        </view>
-      </view>
       <view wx:for="{{li}}">
         <view data-index="{{index}}" class="time_table" bindtap="show_detail">
-          <view class="time" data-index="{{index}}">
-            <view data-index="{{index}}">{{item.name}}</view>
-          </view>
-          <view class="val" data-index="{{index}}">
-            <view data-index="{{index}}">{{item.date}}</view>
-          </view>
-          <!-- <view class="time" data-index="{{index}}">姓名：{{item.name}}</view>
-          <view class="val" data-index="{{index}}">预约时间：{{item.phone}}</view> -->
+          <view class="time" data-index="{{index}}">姓名：{{item.name}}</view>
+          <view class="val" data-index="{{index}}">电话：{{item.phone}}</view>
         </view>
 		  </view>	
-      <view class="{{nothing}}"></view>
 	</view>
 </view>
 

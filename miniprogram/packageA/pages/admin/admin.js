@@ -13,7 +13,9 @@ Page({
       on_show:0, //正在展示的地点
       index:0, //要查看的具体时间段的下标
       time_arr:["09:10~09:50","10:00~10:40","11:00~11:40","14:00~14:40","15:00~15:40","16:00~16:40","17:00~17:40","19:00~19:40",
-      "20:00~20:40","21:00~22:20",]
+      "20:00~20:40","21:00~22:20"],
+      place1_focus:'', //地点一按钮的样式
+      place2_focus:'blur',//地点二按钮的样式
     },
 
     getlast:function(){
@@ -171,21 +173,62 @@ Page({
       }
       else{
         this.setData({
-          on_show:1
+          on_show:1,
+          place2_focus:'blur',
+          place1_focus:'',
         })
       }
     },
 
     show_place2:function(){
-      this.setData({
-        on_show:2
-      })
+      if(this.data.place2_empty)
+      {
+        wx.showModal({
+          title: '提示',
+          content:'该日此地点无数据',
+        })
+      }
+      else{
+        this.setData({
+          on_show:2,
+          place1_focus:'blur',
+          place2_focus:'',
+        })
+      }
     },
 
     to_all:function(e){
-      wx.navigateTo({
-        url: '../all_reserver/all_reserver?place='+this.data.on_show+'&index='+e.target.dataset.index+'&date='+this.data.date,
-      })
+      if(this.data.on_show==1)
+      {
+        if(this.data.place1[e.target.dataset.index]==0)
+        {
+          wx.showModal({
+            title: '提示',
+            content:'该时间段无数据',
+          })
+        }
+        else{
+          wx.navigateTo({
+            url: '../day_reserver/day_reserver?place='+this.data.on_show+'&index='+e.target.dataset.index+'&date='+this.data.date,
+          })
+        }
+      }
+      else
+      {
+        if(this.data.place2[e.target.dataset.index]==0)
+        {
+          wx.showModal({
+            title: '提示',
+            content:'该时间段无数据',
+          })
+        }
+        else{
+          wx.navigateTo({
+            url: '../day_reserver/day_reserver?place='+this.data.on_show+'&index='+e.target.dataset.index+'&date='+this.data.date,
+          })
+        }
+      }
+      
     },
 
     /**

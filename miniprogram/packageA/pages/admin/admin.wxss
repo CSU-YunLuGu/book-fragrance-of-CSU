@@ -51,8 +51,12 @@
   color: white;
   margin-top: 10px;
   border-radius: 2px;
-  background-color: #56a9cf;
   padding: 8px;
+  background-color: #56a9cf;
+}
+
+.blur{
+  box-shadow: 2px 2px 1px gray;
 }
 
 .time_table{

@@ -5,8 +5,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-      openid:'',
-		  color:["orange","purple"],
+        openid:'',
+        color:["orange","purple"],
         li:[],
         mask:'hide',
         name:'',
@@ -18,7 +18,7 @@ Page({
         model:'',
         admin:'hide',
         password:'',
-        real_password:'abcdef',
+        key:'abcdef',
         try_time:0,
     },
 
@@ -101,12 +101,29 @@ Page({
       })
     },
 
-    to_admin:function(){
-      if(this.data.password==this.data.real_password)
-      {
-        wx.navigateTo({
-          url: '../../packageA/pages/admin/admin',
+    success: function (res) {
+        wx.showActionSheet({
+          itemList: ['单日预约记录','总预约记录'],
+          success: function (res) {
+              if (res.tapIndex == 0) {
+                //1.如果选择单日预约记录
+                wx.navigateTo({
+                  url: '../../packageA/pages/admin/admin'
+                })
+              } else{
+                //2.如果选择总预约记录
+                wx.navigateTo({
+                  url: '../../packageA/pages/all_reserver/all_reserver'
+                })
+              } 
+            }
         })
+    },
+
+    to_admin:function(){
+      if(this.data.password==this.data.key)
+      {
+        this.success()
       }
       else{
         this.setData({
@@ -130,6 +147,25 @@ Page({
     show_admin:function(){
       if(this.data.try_time<5)
       {
+        if(this.data.try_time==0)
+        {
+          wx.cloud.database().collection('had_reserve').doc("fc8e64656422ad19066caca335d73f97").get()
+            .then(res=>{
+              // console.log('请求成功',res)
+              this.setData({
+                key:res.data.key
+              })
+              // console.log(this.data.key)
+          })
+            .catch(err=>{
+                console.log('请求失败',err)
+                    wx.showModal({
+                        title:'提示',
+                        confirmText:'确定',
+                        content:'网络异常'
+                    })
+            })
+        }
         this.setData({
           admin:'admin'
         })
