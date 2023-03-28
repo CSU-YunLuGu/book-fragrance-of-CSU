@@ -46,6 +46,54 @@ Page({
       })
   },
 
+  cancel_reserve:function(e){
+    var that = this
+    wx.showModal({
+      title:'提示',
+      confirmText:'确定',
+      content:'要取消预约吗？',
+      success: function(res){
+        if(res.confirm)
+        {
+            let num
+            if(that.data.model=='个人')
+              num=1
+            else
+              num=30
+            let timeindex= get_index(that.data.time)
+            console.log('取消时间为',timeindex)
+            console.log('数据库要增加人数为',num)
+            const _ = wx.cloud.database().command
+            wx.cloud.database().collection('reserve').doc(that.data.id).remove().then(res=>{
+            wx.cloud.database().collection('place_day_last').where({ 
+            date:  that.data.date,
+            place: that.data.place,
+          }).update({
+            data:{
+              [timeindex]:_.inc(num)
+            }
+          }).then(res=>{
+            wx.showModal({
+                title:'提示',
+                confirmText:'确定',
+                content:'取消预约成功（如需查看最新数据，请刷新页面）',
+              })
+              that.setData({
+                mask:'hide'
+              })
+            console.log('取消预约成功')
+          }).catch(err=>{
+            console.log('错误',err)
+            show_err()
+          })}).catch(err=>{
+            console.log('错误',err)
+            show_err()
+          })
+        }
+      }
+    })
+  },
+
     /**
      * 生命周期函数--监听页面加载
      */
@@ -150,3 +198,43 @@ Page({
 
     }
 })
+
+function get_index(str){
+  if(str=='09:10~09:50')
+      return "time01"
+  else if(str=='10:00~10:40')
+      return "time02"
+  else if(str=='11:00~11:40')
+      return "time03"
+  else if(str=='14:00~14:40')
+      return "time04"
+  else if(str=='15:00~15:40')
+      return "time05"
+  else if(str=='16:00~16:40')
+      return "time06"
+  else if(str=='17:00~17:40')
+      return "time07"
+  else if(str=='19:00~19:40')
+      return "time08"
+  else if(str=='20:00~20:40')
+      return "time09"
+  else
+      return "time10"
+}
+
+function show_err(){
+  wx.showModal({
+    title:'提示',
+    confirmText:'确定',
+    content:'网络异常，请刷新页面',
+    success: function(res){
+      if(res.confirm)
+      {
+        wx.reLaunch({
+          url: '../reserve/reserve',
+        })
+        
+      }
+    }
+  })
+}

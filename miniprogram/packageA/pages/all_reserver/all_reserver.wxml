@@ -19,8 +19,6 @@
           <view class="val" data-index="{{index}}">
             <view data-index="{{index}}">{{item.date}}</view>
           </view>
-          <!-- <view class="time" data-index="{{index}}">姓名：{{item.name}}</view>
-          <view class="val" data-index="{{index}}">预约时间：{{item.phone}}</view> -->
         </view>
 		  </view>	
       <view class="{{nothing}}"></view>
@@ -39,9 +37,9 @@
         <view class="paragragh">地点：{{place}}</view>
         <view class="paragragh">日期：{{date}}</view>
         <view class="paragragh">用途：{{useage}}</view>
-		<view class="paragragh">时间：{{time}}</view>
+		    <view class="paragragh">时间：{{time}}</view>
         <view class="button" bindtap="hide_detail">已知晓</view>
-		<!-- <view class="button" bindtap="cancel_reserve">取消预约</view> -->
+		    <view class="button" bindtap="cancel_reserve">取消预约</view>
       </view>
     </view>
 </view>

@@ -86,7 +86,11 @@
     justify-content: space-between;
     font-size: large;
     /* font-weight: lighter; */
-    color: rgb(255, 255, 255);
+	color: rgb(255, 255, 255);
+	margin-bottom: 2px;
+	box-shadow: 3px 3px 1px rgba(128, 128, 128, 0.651);
+	border-radius: 4px;
+	background-color: rgba(128, 128, 128, 0.651);
   }
 
   .time{
@@ -96,7 +100,7 @@
     width: 50%;
     background-color: rgb(252, 174, 86);
     /* background-color: rgb(238, 149, 46); */
-    border: 1px solid #b3b3b3;
+    /* border: 1px solid #b3b3b3; */
   }
   
   .val{
@@ -105,7 +109,7 @@
     text-align: center;
     width: 50%;
     background-color: #5ac6cf;
-    border: 1px solid #b3b3b3;
+    /* border: 1px solid #b3b3b3; */
   }
 
   .nothing{

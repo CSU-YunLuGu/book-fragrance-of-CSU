@@ -26,9 +26,9 @@
         <view class="paragragh">地点：{{place}}</view>
         <view class="paragragh">日期：{{date}}</view>
         <view class="paragragh">用途：{{useage}}</view>
-		<view class="paragragh">时间：{{time}}</view>
+		    <view class="paragragh">时间：{{time}}</view>
         <view class="button" bindtap="hide_detail">已知晓</view>
-		<!-- <view class="button" bindtap="cancel_reserve">取消预约</view> -->
+		    <view class="button" bindtap="cancel_reserve">取消预约</view>
       </view>
     </view>
 </view>
