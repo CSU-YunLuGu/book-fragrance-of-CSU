@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="root">
-  <view class="form_body">
+  <scroll-view class="form_body" scroll-y="{{true}}">
       <view class="parter">
         <view class="section_title">
           学院
@@ -82,15 +82,19 @@
           <view class="info" bindtap="show_agreement">已阅读并同意信息收集协议</view>
         </checkbox>
       </checkbox-group>
-        <view class="bottom">
+      <view class="bottom">
             <view class="submit">
               <button  bindtap="ToSubmit" style="color: aliceblue; width: 100%;height:100%;font-size: large;background-color:rgb(73, 196, 226)" form-type="submit">
                 提交
               </button>
             </view>
         </view>
+  </scroll-view>
+  <!--填充“提交按钮的空白”-->
+  <view class="bottom_blank">
   </view>
 </view>
+
 
 <view class="{{agreement}}">
       <view class="detail">

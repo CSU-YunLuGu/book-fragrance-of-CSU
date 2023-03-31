@@ -1,37 +1,49 @@
 <!--pages/place_resever/place_resever.wxml-->
 <view class="root">
-  <image class='background-image' src='../../../images/back.png' mode="aspectFill"></image>
+  
   <view class="content">
     <view class="table">
-      <view class="title">单位/班级</view>
-      <view class="inputer {{class_arr[0]}}">
-        <view class="pre_position">*</view>
-        <input bindinput="add_class" type="text" data-index="0" bindblur="change_color"/>
+      <view class="parter">
+        <view class="title">单位/班级</view>
+        <view class="inputer {{class_arr[0]}}">
+          <view class="pre_position">*</view>
+          <input bindinput="add_class" type="text" data-index="0" bindblur="change_color"/>
+        </view>
       </view>
-      <view class="title">姓名</view>
-      <view class="inputer {{class_arr[1]}}">
-        <view class="pre_position">*</view>
-        <input bindinput="add_name" type="text" data-index="1" bindblur="change_color"/>
+      <view class="parter">
+        <view class="title">姓名</view>
+        <view class="inputer {{class_arr[1]}}">
+          <view class="pre_position">*</view>
+          <input bindinput="add_name" type="text" data-index="1" bindblur="change_color"/>
+        </view>
       </view>
-      <view class="title">职工号/学号</view>
-      <view class="inputer {{class_arr[2]}}">
-        <view class="pre_position">*</view>
-        <input bindinput="add_id" type="text" data-index="2" bindblur="change_color"/>
+      <view class="parter">
+        <view class="title">职工号/学号</view>
+        <view class="inputer {{class_arr[2]}}">
+          <view class="pre_position">*</view>
+          <input bindinput="add_id" type="text" data-index="2" bindblur="change_color"/>
+        </view>
       </view>
-      <view class="title">联系电话</view>
-      <view class="inputer {{class_arr[3]}}">
-        <view class="pre_position">*</view>
-        <input bindinput="add_phone" type="number" data-index="3" bindblur="change_color"/>
+      <view class="parter">
+        <view class="title">联系电话</view>
+        <view class="inputer {{class_arr[3]}}">
+          <view class="pre_position">*</view>
+          <input bindinput="add_phone" type="number" data-index="3" bindblur="change_color"/>
+        </view>
       </view>
-      <view class="title">邮箱</view>
-      <view class="inputer {{class_arr[4]}}">
-        <view class="pre_position">*</view>
-        <input bindinput="add_mail" type="text" data-index="4" bindblur="change_color"/>
+      <view class="parter">
+        <view class="title">邮箱</view>
+        <view class="inputer {{class_arr[4]}}">
+          <view class="pre_position">*</view>
+          <input bindinput="add_mail" type="text" data-index="4" bindblur="change_color"/>
+        </view>
       </view>
-      <view class="title">用途</view>
-      <view class="inputer {{class_arr[5]}}">
-        <view class="pre_position">*</view>
-        <input bindinput="add_useage" type="text" data-index="5" bindblur="change_color"/>
+      <view class="parter">
+        <view class="title">用途</view>
+        <view class="inputer {{class_arr[5]}}">
+          <view class="pre_position">*</view>
+          <input bindinput="add_useage" type="text" data-index="5" bindblur="change_color"/>
+        </view>
       </view>
       <view class="title">可预约日期{{tomorrow}}~{{end_day}}</view>
       <view>

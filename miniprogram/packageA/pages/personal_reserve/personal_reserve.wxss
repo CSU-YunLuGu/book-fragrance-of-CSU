@@ -2,14 +2,23 @@
   display: flex;
   flex-direction: column;
   margin: 40px auto;
-  padding-left: 30px;
+  padding-left: 0;
+}
+
+.parter{
+  height: 45px;
+  border-bottom: 1px lightgray solid;
+  width: 100%;
+  /*margin-left: 10px;*/
+  display: flex;
+  flex-flow: row;
+  align-items: center;
 }
 
 .inputer{
   display: flex;
   background-color: rgba(255, 255, 255, 0.699);
-  /* border: rgba(128, 128, 128, 0.411) 1px solid; */
-  width: 90%;
+  width: 60%;
   margin-top: 2px;
   margin-bottom: 5px;
 }
@@ -22,10 +31,6 @@
   border: rgba(216, 63, 63, 0.925) 1px solid;
 }
 
-.bule_border{
-  border: rgba(170, 227, 245, 0.411) 1px solid;
-}
-
 .pre_position{
   color: red;
   width: 15px;
@@ -34,17 +39,20 @@
 }
 
 .title{
-	/* font-style: oblique; */
-	/* font-style: italic; */
-	font-size:medium;
-	font-weight: 300;
+	margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  align-items: center;
+  text-align: justify;
+  width: 25%;
+  font-weight: 750;
 }
 
 input{
   border-radius: 4px;
   width: 85%;
-  font-size: small;
-  margin-top: 1px;
+	font-size: small;
+	margin-top: 1px;
 }
 
 .picker{
@@ -55,8 +63,8 @@ input{
   border: rgba(146, 215, 241, 0.411) 1px solid;
   padding-top: 4px;
   text-align: center;
-  margin-top: 4px;
-  margin-bottom: 5px;
+	margin-top: 4px;
+	margin-bottom: 5px;
 }
 
 .summit{
@@ -72,7 +80,6 @@ input{
 }
 
 checkbox .wx-checkbox-input {
-  color: rgb(255, 255, 255);
   width: 30rpx;
   height: 30rpx;
   background-color: rgba(134, 184, 218, 0.137);
@@ -80,14 +87,14 @@ checkbox .wx-checkbox-input {
 }
 
 checkbox{
-	margin-top: 6px;
+  margin-top: 6px;
   font-weight: lighter;
-  width: 100%; 
+  width: 100%;
 }
 
 .last{
   font-size: small;
-  color: rgb(0, 0, 0);
+  color: rgb(54, 54, 54);
 }
 
 .info{

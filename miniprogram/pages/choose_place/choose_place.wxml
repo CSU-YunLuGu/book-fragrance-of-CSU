@@ -1,8 +1,5 @@
 <!--pages/choose_place/choose_place.wxml-->
 <view class="root">
-<!-- 背景图片 -->
-<!-- <image class='background-image' src='../../images/back.jpg' mode="aspectFill"></image> -->
- <image class='background-image' src='../../images/back.png' mode="aspectFill"></image>
  <!-- 页面内容 -->
   <view class="content">
     <view class="place">
@@ -33,7 +30,7 @@
         </view>
         <view class=".divide_two">
           <view>负责部门</view>
-          <view>沙龙室管理员</view>
+          <view>书香中南工作组</view>
         </view>
       </view>
       <view class="divide_two">
@@ -71,7 +68,7 @@
         </view>
         <view class=".divide_two">
           <view>负责部门</view>
-          <view>沙龙室管理员</view>
+          <view>书香中南工作组</view>
         </view>
       </view>
       <view class="divide_two">

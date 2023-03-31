@@ -79,7 +79,7 @@
   color: white;
   margin-top: 10px;
   border-radius: 2px;
-  background-color: #56a9cf;
+  background-color: #70d1fa;
   padding: 8px;
 }
 

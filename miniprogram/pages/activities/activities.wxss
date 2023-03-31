@@ -71,7 +71,7 @@
 
 .to_font{
 	width: 100%;
-	position: absolute;
+	position: re;
   }
   
   .to_back{
