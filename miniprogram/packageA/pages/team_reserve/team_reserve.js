@@ -29,6 +29,7 @@ Page({
       class_arr:['gray_border','gray_border','gray_border','gray_border','gray_border','gray_border'], //输入框的class
       agreement:'hide',
       agree:0,
+      ChooseTime:'hide',
     },
 
     add_class:function(e) //获取单位
@@ -70,6 +71,18 @@ Page({
     {
       this.setData({
         useage: e.detail.value
+      })
+    },
+
+    show_ChooseTime:function(){
+      this.setData({
+        ChooseTime:'choosetime',
+      })
+    },
+
+    hide_ChooseTime:function(){
+      this.setData({
+        ChooseTime:'hide',
       })
     },
 

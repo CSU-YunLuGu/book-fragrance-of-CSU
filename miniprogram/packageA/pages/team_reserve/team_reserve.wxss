@@ -3,17 +3,19 @@
   flex-direction: column;
   padding-left: 0;
   background-color: rgb(255, 255, 255);
-  margin-bottom: 30px;
+  margin-bottom: 60px;
+  margin-top: 10px;
 }
 
 .parter{
   height: 45px;
-  border-bottom: 1px lightgray solid;
+  margin-bottom: 5px;
   width: 100%;
   /*margin-left: 10px;*/
   display: flex;
   flex-flow: row;
   align-items: center;
+  background-color: rgb(228, 242, 254);
 }
 
 .inputer{
@@ -43,10 +45,10 @@
 	margin-left: 10px;
   margin-right: 10px;
   margin-top: 10px;
-  align-items: center;
-  text-align: justify;
+  text-align: center;
   width: 25%;
   font-weight: 750;
+  position: relative;
 }
 
 input{
@@ -110,13 +112,14 @@ label{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 35px;
 }
 
 .check{
   width: 100%;
   display: flex;
   flex-direction: row;
-  margin-left: 20px;
+  background-color: white;
 }
 
 .check_item{
@@ -169,6 +172,19 @@ label{
   box-shadow: 4px 4px 3px rgba(128, 128, 128, 0.527);
 }
 
+.choosetime{
+  position: fixed;
+  overflow: hidden;
+  height: 450px;
+  border: 1px solid rgb(141, 156, 156);
+  top: 7%;
+  left: 5%;
+  z-index: 50;
+  width: 80%;
+  background-color: rgba(255, 255, 255, 0.952);
+  padding: 18px;
+}
+
 .title1{
   text-align: center;
   padding-bottom: 8px;
@@ -181,8 +197,6 @@ label{
   margin-left: 10px;
   margin-right: 10px;
   margin-top: 10px;
-  align-items: center;
-  text-align: justify;
   width: 100%;
   font-weight: 750;
 }
@@ -222,5 +236,5 @@ label{
 }
 
 .bottom{
-  background-color: rgb(240, 240, 240);
+
 }

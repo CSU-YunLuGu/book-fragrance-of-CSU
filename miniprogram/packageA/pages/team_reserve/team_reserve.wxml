@@ -3,7 +3,7 @@
   
   <view class="content">
     <view class="table">
-      <view class="parter">
+      <view class="parter" style="background-color: white">
         <view class="title">单位/班级</view>
         <view class="inputer {{class_arr[0]}}">
           <view class="pre_position">*</view>
@@ -17,7 +17,7 @@
           <input bindinput="add_name" type="text" data-index="1" bindblur="change_color"/>
         </view>
       </view>
-      <view class="parter">
+      <view class="parter" style="background-color: white">
         <view class="title">职工号/学号</view>
         <view class="inputer {{class_arr[2]}}">
           <view class="pre_position">*</view>
@@ -31,7 +31,7 @@
           <input bindinput="add_phone" type="number" data-index="3" bindblur="change_color"/>
         </view>
       </view>
-      <view class="parter">
+      <view class="parter" style="background-color: white">
         <view class="title">邮箱</view>
         <view class="inputer {{class_arr[4]}}">
           <view class="pre_position">*</view>
@@ -45,27 +45,32 @@
           <input bindinput="add_useage" type="text" data-index="5" bindblur="change_color"/>
         </view>
       </view>
-      <view class="title_date">可预约日期{{tomorrow}}~{{end_day}}</view>
+      </view>
+    <view bindtap="show_ChooseTime" class="summit">选择时间</view>
+  
+</view>
+
+<scroll-view class="{{ChooseTime}}" scroll-y="{{true}}">
+  <view class="title_date">可预约日期{{tomorrow}}~{{end_day}}</view>
       <view>
         <picker mode="date" value="{{date}}" start='{{tomorrow}}' end="{{end_day}}" bindchange="add_Date">
         <view class="picker">
           当前选择: {{date}}
         </view>
         </picker>
-      </view>
+        </view>
       <view>您已预约{{had_reserve+time_num}}个时间段，最多预约4个</view>
       <checkbox-group bindchange="box_change">
-        <label wx:for="{{time_select}}" wx:key="value">
-          <checkbox class="check" color='rgb(0, 0, 0)' value="{{index}}" checked="{{item.checkd}}" disabled="{{(lasted[index]<30||had_reserve_arr[index]==true)?true:item.disabled}}">
-            <view class="check_item">
+        <label wx:for="{{time_select}}" wx:key="value" class="" style="background-color: {{(index%2==0 ? 'white' : 'rgb(228, 242, 254)')}}">
+          <checkbox class="check" color='rgb(0, 0, 0)' style="background-color: {{(index%2==0 ? 'white' : 'rgb(228, 242, 254)')}}" value="{{index}}" checked="{{item.checkd}}" disabled="{{(lasted[index]<30||had_reserve_arr[index]==true)?true:item.disabled}}">
+            <view class="check_item" style="background-color: {{(index%2==0 ? 'white' : 'rgb(228, 242, 254)')}}">
               <p class="p1">{{item.time}}</p> 
               <p class="p2">(剩余{{lasted[index]==30?1:0}})</p>
             </view>
           </checkbox>
         </label>
       </checkbox-group> 
-    </view>
-    <view class="bottom">
+      <view class="bottom">
       <checkbox-group class="info" bindchange="change_agree">
           <checkbox checked="{{agree}}">
             <view class="info" bindtap="show_agreement">已阅读并同意信息收集协议</view>
@@ -73,7 +78,9 @@
         </checkbox-group>
       <view bindtap="submit" class="summit">提交</view>
     </view>
-  </view>
+    <view bindtap="hide_ChooseTime" class="summit">返回</view>
+    </scroll-view>
+
 </view>
 
 <view class="{{agreement}}">

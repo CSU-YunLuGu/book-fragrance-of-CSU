@@ -34,6 +34,7 @@ Page({
       lasted:[30,30,30,30,30,30,30,30,30,30], //剩余数量
       class_arr:['gray_border','gray_border','gray_border','gray_border','gray_border','gray_border'] ,//输入框的class
       agreement:'hide',
+      ChooseTime:'hide',
       agree:0,
     },
 
@@ -346,6 +347,18 @@ Page({
     hide_agreement:function(){
       this.setData({
         agreement:'hide'
+      })
+    },
+
+    show_ChooseTime:function(){
+      this.setData({
+        ChooseTime:'choosetime',
+      })
+    },
+
+    hide_ChooseTime:function(){
+      this.setData({
+        ChooseTime:'hide',
       })
     },
 
