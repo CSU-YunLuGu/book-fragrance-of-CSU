@@ -45,7 +45,7 @@
           <input bindinput="add_useage" type="text" data-index="5" bindblur="change_color"/>
         </view>
       </view>
-      <view class="title">可预约日期{{tomorrow}}~{{end_day}}</view>
+      <view class="title_date">可预约日期{{tomorrow}}~{{end_day}}</view>
       <view>
         <picker mode="date" value="{{date}}" start='{{tomorrow}}' end="{{end_day}}" bindchange="add_Date">
         <view class="picker">

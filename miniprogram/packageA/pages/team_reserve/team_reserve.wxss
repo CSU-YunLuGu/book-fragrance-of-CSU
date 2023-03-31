@@ -134,6 +134,16 @@ checkbox{
   font-size:15px;
 }
 
+.title_date{
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  align-items: center;
+  text-align: justify;
+  width: 100%;
+  font-weight: 750;
+}
+
 .paragragh{
   width: 95%;
   margin-top: 15px;

@@ -45,13 +45,9 @@
           <input bindinput="add_useage" type="text" data-index="5" bindblur="change_color"/>
         </view>
       </view>
-      <view class="title">可预约日期{{tomorrow}}~{{end_day}}</view>
-      <view>
-        <picker mode="date" value="{{date}}" start='{{tomorrow}}' end="{{end_day}}" bindchange="add_Date">
-        <view class="picker">
-          当前选择: {{date}}
-        </view>
-        </picker>
+      <view class="title_date">预约时间（个人仅可预约下一天）</view>
+      <view class="picker">
+          {{tomorrow}}
       </view>
       <view>您已预约{{had_reserve+time_num}}个时间段，最多预约4个</view>
       <checkbox-group bindchange="box_change">
