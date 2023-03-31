@@ -51,17 +51,24 @@
       </view>
       <view>您已预约{{had_reserve+time_num}}个时间段，最多预约4个</view>
       <checkbox-group bindchange="box_change">
-        <label wx:for="{{time_select}}" wx:key="value">
-          <checkbox color='rgb(255, 255, 255)' value="{{index}}" checked="{{item.checkd}}" disabled="{{(lasted[index]<30||had_reserve_arr[index]==true)?true:item.disabled}}">{{item.time}} <p class="last">剩余{{lasted[index]==30?1:0}}</p></checkbox>
+        <label wx:for="{{time_select}}" wx:key="value" class="">
+          <checkbox class="check" color='rgb(0, 0, 0)' value="{{index}}" checked="{{item.checkd}}" disabled="{{(lasted[index]<30||had_reserve_arr[index]==true)?true:item.disabled}}">
+            <view class="check_item">
+              <p class="p1">{{item.time}}</p> 
+              <p class="p2">(剩余{{lasted[index]}})</p>
+            </view>
+          </checkbox>
         </label>
       </checkbox-group> 
     </view>
-    <checkbox-group class="info" bindchange="change_agree">
-        <checkbox checked="{{agree}}">
-          <view class="info" bindtap="show_agreement">已阅读并同意信息收集协议</view>
-        </checkbox>
-      </checkbox-group>
-    <view bindtap="submit" class="summit">提交</view>
+    <view class="bottom">
+      <checkbox-group class="info" bindchange="change_agree">
+          <checkbox checked="{{agree}}">
+            <view class="info" bindtap="show_agreement">已阅读并同意信息收集协议</view>
+          </checkbox>
+        </checkbox-group>
+      <view bindtap="submit" class="summit">提交</view>
+    </view>
   </view>
 </view>
 

@@ -1,8 +1,9 @@
 .table{
   display: flex;
   flex-direction: column;
-  margin: 40px auto;
   padding-left: 0;
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 30px;
 }
 
 .parter{
@@ -58,13 +59,16 @@ input{
 .picker{
   /* border-radius: 4px; */
   font-weight: lighter;
-  width: 90%;
+  width: 100%;
   background-color: rgba(255, 255, 255, 0.699);
   border: rgba(146, 215, 241, 0.411) 1px solid;
   padding-top: 4px;
   text-align: center;
 	margin-top: 4px;
 	margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .summit{
@@ -92,9 +96,48 @@ checkbox{
   width: 100%;
 }
 
+.p1{
+  width: 40%;
+  align-items: right;
+}
+
+.p2{
+  margin-left: 50px;
+}
+
+label{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.check{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-left: 20px;
+}
+
+.check_item{
+  width: 400px;
+  display: flex;
+  flex-direction: row;
+}
+
+.time{
+  margin-top: 6px;
+  font-weight: lighter;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .last{
+  margin-left: 20px;
   font-size: small;
   color: rgb(54, 54, 54);
+  width: 60%;
 }
 
 .info{
@@ -138,8 +181,6 @@ checkbox{
   margin-left: 10px;
   margin-right: 10px;
   margin-top: 10px;
-  align-items: center;
-  text-align: justify;
   width: 100%;
   font-weight: 750;
 }
@@ -176,4 +217,8 @@ checkbox{
 
 .hide{
   display: none;
+}
+
+.bottom{
+  background-color: rgb(240, 240, 240);
 }

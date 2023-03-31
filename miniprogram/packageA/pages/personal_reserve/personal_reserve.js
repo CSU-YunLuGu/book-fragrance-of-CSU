@@ -22,7 +22,15 @@ Page({
       time_arr:[], //选择的时间
       time_name_arr:[],//选择的时间的名称
       time_select:[{time:"09:10~09:50",disabled:false},//time为时间段，checke为是否选中，disabled为是否禁用
-      {time:"10:00~10:40",disabled:false},{time:"11:00~11:40",disabled:false},{time:"14:00~14:40",disabled:false},{time:"15:00~15:40",disabled:false},{time:"16:00~16:40",disabled:false},{time:"17:00~17:40",disabled:false},{time:"19:00~19:40",disabled:false},{time:"20:00~20:40",disabled:false},{time:"21:00~22:20",disabled:false}],
+      {time:"10:00~10:40",disabled:false},
+      {time:"11:00~11:40",disabled:false},
+      {time:"14:00~14:40",disabled:false},
+      {time:"15:00~15:40",disabled:false},
+      {time:"16:00~16:40",disabled:false},
+      {time:"17:00~17:40",disabled:false},
+      {time:"19:00~19:40",disabled:false},
+      {time:"20:00~20:40",disabled:false},
+      {time:"21:00~22:20",disabled:false}],
       lasted:[30,30,30,30,30,30,30,30,30,30], //剩余数量
       class_arr:['gray_border','gray_border','gray_border','gray_border','gray_border','gray_border'] ,//输入框的class
       agreement:'hide',

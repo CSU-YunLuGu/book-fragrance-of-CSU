@@ -77,12 +77,12 @@
           </view>
         </picker>
       </view>
-      <checkbox-group class="info" bindchange="change_agree">
-        <checkbox checked="{{agree}}">
-          <view class="info" bindtap="show_agreement">已阅读并同意信息收集协议</view>
-        </checkbox>
-      </checkbox-group>
       <view class="bottom">
+        <checkbox-group class="info" bindchange="change_agree">
+          <checkbox checked="{{agree}}">
+            <view class="info" bindtap="show_agreement">已阅读并同意信息收集协议</view>
+          </checkbox>
+        </checkbox-group>
             <view class="submit">
               <button  bindtap="ToSubmit" style="color: aliceblue; width: 100%;height:100%;font-size: large;background-color:rgb(73, 196, 226)" form-type="submit">
                 提交

@@ -1,6 +1,8 @@
 .root{
   display: flex;
   height: 100%;
+  background-color: rgb(245,245,245);
+  width: 100%;
 }
 .parter{
   height: 45px;
@@ -30,9 +32,9 @@
 }
 .bottom{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
-  height: 50px;
+  height: 70px;
   width: 95%;
   border-radius: 20%;
   margin-top: 5px;
@@ -40,6 +42,7 @@
   margin-right: 10px;
   position: fixed;
   bottom: 0;
+  
 }
 .submit{
   height: 80%;
