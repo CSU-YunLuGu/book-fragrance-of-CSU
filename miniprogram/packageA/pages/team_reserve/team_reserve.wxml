@@ -51,7 +51,10 @@
 </view>
 
 <scroll-view class="{{ChooseTime}}" scroll-y="{{true}}">
-  <view class="title_date">可预约日期    {{tomorrow}}~{{end_day}}</view>
+  <view class="title_date">可预约日期  
+      </view>
+      <view class="title_date">
+      {{tomorrow}}~{{end_day}}</view>
       <view>
         <picker mode="date" value="{{date}}" start='{{tomorrow}}' end="{{end_day}}" bindchange="add_Date">
         <view class="picker">
