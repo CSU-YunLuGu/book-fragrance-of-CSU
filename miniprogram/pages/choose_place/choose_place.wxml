@@ -2,7 +2,7 @@
 <view class="root">
  <!-- 页面内容 -->
   <view class="content">
-    <view class="place">
+    <view class="place purple_back">
       <view class="place_name">沙龙室1</view>
       <image class="image_use" src="../../images/place1.jpg" mode="aspectFill"></image>
       <view class="people">
@@ -26,7 +26,7 @@
         </view>
         <view class=".divide_two">
           <view>详细地址</view>
-          <view>南校区20栋114</view>
+          <view>学生9社2楼114</view>
         </view>
         <view class=".divide_two">
           <view>负责部门</view>
@@ -40,7 +40,7 @@
         <view class="navigator" data-who="2" data-place="1" bindtap="show_gray_back">团体预约</view>
       </view>
     </view>
-    <view class="place">
+    <view class="place orange_back">
       <view class="place_name">沙龙室2</view>
       <image class="image_use" src="../../images/place2.jpg" mode="aspectFill"></image>
       <view class="people">
@@ -64,7 +64,7 @@
         </view>
         <view class=".divide_two">
           <view>详细地址</view>
-          <view>南校区20栋114</view>
+          <view>学生9社2楼114</view>
         </view>
         <view class=".divide_two">
           <view>负责部门</view>
@@ -80,7 +80,7 @@
 </view>
   <view class="{{gray_back}}">
     <view class="tip">
-      <image src="../../images/logo1.png" class="to_back"></image>
+      <!-- <image src="../../images/logo1.png" class="to_back"></image> -->
       <view class="to_font">
         <view class="title">注意事项</view>
         <view class="paragragh">1.场馆预约成功后无特殊情况不能随意更改，使用期间不能带走或毁坏房间内的公共物品，不能大声喧哗。在使用结束后，需整理好所在位置卫生。</view>

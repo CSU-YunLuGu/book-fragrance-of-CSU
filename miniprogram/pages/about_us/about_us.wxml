@@ -8,14 +8,14 @@
 			</view>
 		</navigator>
 		<navigator class="box blue" url="../../packageA/pages/photo/photo?src=2">
-			<image src="../../images/pen.png" class="to_back" mode="aspectFit"></image>
+			<image src="../../images/pen1.png" class="to_back big_image" mode="aspectFit"></image>
 			<view class="to_font">
 				<view class="big_font">善读</view>
 				<view class="small_font">查看</view>
 			</view>
 		</navigator>
 		<navigator class="box orange" url="../../packageA/pages/photo/photo?src=3">
-			<image src="../../images/fether_pen.png" class="to_back" mode="aspectFit"></image>
+			<image src="../../images/fether_pen.png" class="to_back small_image" mode="aspectFit"></image>
 			<view class="to_font">
 				<view class="big_font">爱读</view>
 				<view class="small_font">查看</view>

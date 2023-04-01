@@ -20,7 +20,6 @@
 .place{
 	position: relative;
   border: 1px solid rgba(128, 128, 128, 0.404);
-  background-color: #ffffffa8;
   margin: 15px auto;
   width: 80%;
   display: flex;
@@ -30,9 +29,17 @@
   align-items: center;
   padding: 15px;
   border-radius: 10px;
-  box-shadow: 4px 4px 2px rgba(155, 153, 153, 0.459);
+  box-shadow: 8px 8px 2px rgba(155, 153, 153, 0.459);
   /* font-family: cursive; */
   }
+
+.orange_back{
+  background-color: rgba(252, 174, 86, 0.089);
+}
+
+.purple_back{
+  background-color: rgba(182, 149, 236, 0.103);
+}
 
 .place_name{
   font-size: large;
@@ -92,16 +99,20 @@
 }
 
 .tip{
+  /* text-align: center; */
+  border-radius: 10px;
+  font-weight: lighter;
+  line-height: 26px;
   position: relative;
   overflow: hidden;
-  height: 450px;
+  height: 520px;
   border: 1px solid rgb(141, 156, 156);
-  top: 7%;
+  top: 3%;
   left: 5%;
   z-index: 100;
-  width: 80%;
+  width: 90%;
   background-color: rgba(243, 243, 243, 0.952);
-  padding: 18px;
+  /* padding: 18px; */
   box-shadow: 4px 4px 3px rgba(128, 128, 128, 0.527);
 }
 
@@ -114,7 +125,7 @@
 }
 
 .paragragh{
-  width: 95%;
+  width: 100%;
   margin-top: 10px;
   /* font-family: 仿宋; */
 }
@@ -136,7 +147,8 @@
 }
 
 .to_font{
-  width: 92%;
+  margin: 5%;
+  width: 90%;
   position: absolute;
 }
 

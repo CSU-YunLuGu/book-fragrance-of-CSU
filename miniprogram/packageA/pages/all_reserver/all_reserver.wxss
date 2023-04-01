@@ -18,7 +18,7 @@
 	text-align: center;
 	position: relative;
 	overflow: hidden;
-	height: 400px;
+	height: 440px;
 	border-radius: 5px;
 	border: 1px solid rgb(141, 156, 156);
 	top: 50px;
@@ -61,7 +61,7 @@
 	text-align: center;
 	padding: 7px;
 	border-radius: 5px;
-	border: 1px solid gray;
+	/* border: 1px solid gray; */
 	color: rgb(255, 255, 255);
 	width: 65px;
 	margin-top: 20px;

@@ -22,8 +22,8 @@
   display: flex;
   background-color: rgba(255, 255, 255, 0.699);
   width: 60%;
-  margin-top: 2px;
-  margin-bottom: 5px;
+  /* margin-top: 2px; */
+  /* margin-bottom: 5px; */
 }
 
 .gray_border{
@@ -44,7 +44,7 @@
 .title{
 	margin-left: 10px;
   margin-right: 10px;
-  margin-top: 10px;
+  /* margin-top: 10px; */
   text-align: center;
   width: 25%;
   font-weight: 750;
@@ -60,14 +60,17 @@ input{
 
 .picker{
   /* border-radius: 4px; */
-  font-weight: lighter;
+  /* font-weight: lighter; */
+  font-size: large;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.699);
-  border: rgba(146, 215, 241, 0.411) 1px solid;
+  /* border: rgba(146, 215, 241, 0.411) 1px solid; */
+  padding-bottom: 8px;
+  border-bottom: rgba(146, 215, 241, 0.411) 1px solid;
   padding-top: 4px;
   text-align: center;
-	margin-top: 4px;
-	margin-bottom: 5px;
+	margin-top: 5px;
+	margin-bottom: 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -93,7 +96,7 @@ checkbox .wx-checkbox-input {
 }
 
 checkbox{
-  margin-top: 6px;
+  margin-top: 18px;
   font-weight: lighter;
   width: 100%;
 }
@@ -112,7 +115,7 @@ label{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 35px;
+  height: 40px;
 }
 
 .check{
@@ -120,6 +123,7 @@ label{
   display: flex;
   flex-direction: row;
   background-color: white;
+  margin: 0 auto;
 }
 
 .check_item{
@@ -145,6 +149,7 @@ label{
 
 .info{
   /* font-size: small; */
+  margin-bottom: 10px;
   color: rgb(35, 20, 247);
   text-align: center;
   text-decoration:rgb(35, 20, 247) underline;
@@ -175,9 +180,10 @@ label{
 .choosetime{
   position: fixed;
   overflow: hidden;
-  height: 450px;
+  height: 500px;
   border: 1px solid rgb(141, 156, 156);
-  top: 7%;
+  border-radius: 10px;
+  top: 3%;
   left: 5%;
   z-index: 50;
   width: 80%;
@@ -194,6 +200,7 @@ label{
 }
 
 .title_date{
+  text-align: center;
   margin-left: 10px;
   margin-right: 10px;
   margin-top: 10px;
@@ -235,6 +242,9 @@ label{
   display: none;
 }
 
-.bottom{
-
+::-webkit-scrollbar {
+  display:none;
+  width:0;
+  height:0;
+  color:transparent;
 }
