@@ -7,42 +7,42 @@
         <view class="title">单位/班级</view>
         <view class="inputer {{class_arr[0]}}">
           <view class="pre_position">*</view>
-          <input bindinput="add_class" type="text" data-index="0" bindblur="change_color"/>
+          <input bindinput="add_class" maxlength="15" type="text" data-index="0" bindblur="change_color"/>
         </view>
       </view>
       <view class="parter">
         <view class="title">姓名</view>
         <view class="inputer {{class_arr[1]}}">
           <view class="pre_position">*</view>
-          <input bindinput="add_name" type="text" data-index="1" bindblur="change_color"/>
+          <input bindinput="add_name" maxlength="10" type="text" data-index="1" bindblur="change_color"/>
         </view>
       </view>
       <view class="parter" style="background-color: white">
         <view class="title">职工号/学号</view>
         <view class="inputer {{class_arr[2]}}">
           <view class="pre_position">*</view>
-          <input bindinput="add_id" type="text" data-index="2" bindblur="change_color"/>
+          <input maxlength="10" bindinput="add_id" type="number" data-index="2" bindblur="change_color"/>
         </view>
       </view>
       <view class="parter">
         <view class="title">联系电话</view>
         <view class="inputer {{class_arr[3]}}">
           <view class="pre_position">*</view>
-          <input bindinput="add_phone" type="number" data-index="3" bindblur="change_color"/>
+          <input bindinput="add_phone" maxlength="11" type="number" data-index="3" bindblur="change_color"/>
         </view>
       </view>
       <view class="parter" style="background-color: white">
         <view class="title">邮箱</view>
         <view class="inputer {{class_arr[4]}}">
           <view class="pre_position">*</view>
-          <input bindinput="add_mail" type="text" data-index="4" bindblur="change_color"/>
+          <input bindinput="add_mail" maxlength="20" type="text" data-index="4" bindblur="change_color"/>
         </view>
       </view>
       <view class="parter">
         <view class="title">用途</view>
         <view class="inputer {{class_arr[5]}}">
           <view class="pre_position">*</view>
-          <input bindinput="add_useage" type="text" data-index="5" bindblur="change_color"/>
+          <input placeholder="请输入在20字以内" bindinput="add_useage" maxlength="20" type="text" data-index="5" bindblur="change_color"/>
         </view>
       </view>
       </view>
@@ -58,7 +58,7 @@
   <view style="text-align: center;">您已预约 {{had_reserve+time_num}} 个时间段，最多预约4个</view>
   <checkbox-group bindchange="box_change" style="margin-top: 10px;">
     <label wx:for="{{time_select}}" wx:key="value" style="background-color: {{(index%2==0 ? 'white' : 'rgb(228, 242, 254)')}}">
-      <checkbox class="check"  color='rgb(0, 0, 0)' style="background-color: {{(index%2==0 ? 'white' : 'rgb(228, 242, 254)')}}" value="{{index}}" checked="{{item.checkd}}" disabled="{{(lasted[index]<30||had_reserve_arr[index]==true)?true:item.disabled}}">
+      <checkbox class="check"  color='rgb(0, 0, 0)' style="background-color: {{(index%2==0 ? 'white' : 'rgb(228, 242, 254)')}}" value="{{index}}" checked="{{item.checkd}}" disabled="{{(lasted[index]==0||had_reserve_arr[index]==true)?true:item.disabled}}">
         <view class="check_item" style="background-color: {{(index%2==0 ? 'white' : 'rgb(228, 242, 254)')}}" >
          <p class="p1">{{item.time}}</p> 
           <p class="p2">(剩余{{lasted[index]}})</p>

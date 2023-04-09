@@ -13,8 +13,8 @@
       </picker>
     </view>
     <view class="divide_two">
-      <view class="chose_place {{place1_focus}}" bindtap="show_place1">沙龙室1</view>
-      <view class="chose_place {{place2_focus}}" bindtap="show_place2">沙龙室2</view>
+      <view class="chose_place {{place1_focus}}" bindtap="show_place1">阅览室1</view>
+      <view class="chose_place {{place2_focus}}" bindtap="show_place2">阅览室2</view>
     </view>
     <view class="time_table">
         <view class="time">时间段</view>

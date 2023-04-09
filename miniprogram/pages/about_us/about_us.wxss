@@ -50,19 +50,19 @@
   
 .to_back{
 	/* transform: rotate(30deg); */
-	opacity: 0.75;
-	top:-5%;
+	opacity: 0.6;
+	top:5%;
 	left: 90px;
 	position: absolute;
-	height: 120%;
+	height: 95%;
   }
 
 .big_image{
-	top: -15%;
-	height: 140%;
+	top: 5%;
+	height: 95%;
 }
 
 .small_image{
-	top: 5%;
-	height: 90%;
+	top: 9%;
+	height: 80%;
 }

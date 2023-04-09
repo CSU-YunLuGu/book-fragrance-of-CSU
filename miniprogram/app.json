@@ -18,7 +18,10 @@
                 "pages/photo/photo",
                 "pages/admin/admin",
                 "pages/day_reserver/day_reserver",
-                "pages/all_reserver/all_reserver"
+                "pages/all_reserver/all_reserver",
+                "pages/check/check",
+                "pages/add_date/add_date",
+                "pages/admin_reserve/admin_reserve"
             ]
         }
     ],

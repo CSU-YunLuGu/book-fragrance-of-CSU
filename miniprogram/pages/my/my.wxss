@@ -4,6 +4,20 @@
 	width: 80%;
 	border-radius: 10px;
 }
+.color_tip{
+	margin-top: 20px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	font-weight: bold;
+}
+
+.little_box{
+	margin: 0 auto;
+	width: 20px;
+	height: 20px;
+	border-radius: 5px;
+}
 
 .title{
 	box-shadow: 4px 4px 1px rgba(128, 128, 128, 0.63);
@@ -29,6 +43,10 @@
 	background-color: rgb(252, 174, 86);
 }
 
+.red{
+	background-color: rgb(231, 89, 54);
+}
+
 .box{
 	color: honeydew;
 	font-weight: bold;
@@ -48,7 +66,7 @@
 	text-align: center;
 	position: relative;
 	overflow: hidden;
-	height: 340px;
+	height: 75%;
 	border-radius: 5px;
 	border: 1px solid rgb(141, 156, 156);
 	top: 50px;

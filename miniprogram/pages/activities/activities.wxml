@@ -1,12 +1,12 @@
 <view class="root">
 	<view class="content">
-		<navigator class="box orange" url="../activity_reserve/activity_reserve">
+		<!-- <navigator class="box orange" url="../activity_reserve/activity_reserve">
 			<image src="../../images/activity.png" class="to_back" mode="aspectFit"></image>
 			<view class="to_font">
 				<view class="big_font">当前活动</view>
 				<view class="small_font">现在预约>></view>
 			</view>
-		</navigator>
+		</navigator> -->
 		<navigator class="box_unexist" >
 			<view class="to_font" style="position: relative;">
 				<view class="big_font_unexist">暂无其他</view>

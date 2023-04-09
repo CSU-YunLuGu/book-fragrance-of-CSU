@@ -1,7 +1,7 @@
 <view class="root">
 	<view class="content">
 		<navigator class="box purple" url="../choose_place/choose_place">
-			<image src="../../images/place.png" class="to_back" mode="aspectFit"></image>
+			<image src="../../images/note.png" class="to_back low_opcity" mode="aspectFit"></image>
 			<view class="to_font">
 				<view class="big_font">场地预约</view>
 				<view class="small_font">现在预约>></view>

@@ -5,10 +5,12 @@ Page({
      * 页面的初始数据
      */
     data: {
-      openid:'111',
+      openid:'',
       if_err:0, //是否出现错误
       place:'', //预约地点
       disabled:false,//是否对全部多选框开启禁用状态
+      tomottow:'', //可选择的第一天
+      end_day:'', //可选择的最后一天
       had_reserve:0, //此人在今天已预约过的场数
       had_reserve_arr:[], //记录每个时间段是否被预约过
       class:"", //单位
@@ -17,26 +19,17 @@ Page({
       phone:"", //手机号
       mail:"",  //邮箱
       useage:"", //用途
-      tomorrow:"",  //日期
+      date:"",  //选择的日期
       time_num:0, //选择的时间数
       time_arr:[], //选择的时间
       time_name_arr:[],//选择的时间的名称
       time_select:[{time:"09:10~09:50",disabled:false},//time为时间段，checke为是否选中，disabled为是否禁用
-      {time:"10:00~10:40",disabled:false},
-      {time:"11:00~11:40",disabled:false},
-      {time:"14:00~14:40",disabled:false},
-      {time:"15:00~15:40",disabled:false},
-      {time:"16:00~16:40",disabled:false},
-      {time:"17:00~17:40",disabled:false},
-      {time:"19:00~19:40",disabled:false},
-      {time:"20:00~20:40",disabled:false}],
+      {time:"10:00~10:40",disabled:false},{time:"11:00~11:40",disabled:false},{time:"14:00~14:40",disabled:false},{time:"15:00~15:40",disabled:false},{time:"16:00~16:40",disabled:false},{time:"17:00~17:40",disabled:false},{time:"19:00~19:40",disabled:false},{time:"20:00~20:40",disabled:false}],
       lasted:[30,30,30,30,30,30,30,30,30], //剩余数量
-      class_arr:['gray_border','gray_border','gray_border','gray_border','gray_border','gray_border'] ,//输入框的class
-      agreement:'hide', //协议是否隐藏
-      ChooseTime:'hide', //选择时间部分是否要隐藏
-      agree:0, //是否同意协议
-      dis_reserve_time:0, //取消预约的时间
-      reserve_time: 0, //预约过的时间
+      class_arr:['gray_border','gray_border','gray_border','gray_border','gray_border','gray_border'], //输入框的class
+      agreement:'hide',
+      agree:0,
+      ChooseTime:'hide',
     },
 
     add_class:function(e) //获取单位
@@ -78,6 +71,18 @@ Page({
     {
       this.setData({
         useage: e.detail.value
+      })
+    },
+
+    show_ChooseTime:function(){
+      this.setData({
+        ChooseTime:'choosetime',
+      })
+    },
+
+    hide_ChooseTime:function(){
+      this.setData({
+        ChooseTime:'hide',
       })
     },
 
@@ -142,16 +147,17 @@ Page({
       this.setData({
         time_name_arr:list
       })
+      console.log(this.data.time_name_arr)
     },
 
     sub_place_day_last:function(str){  //提交数据到place_day_last数据库
       const _ = wx.cloud.database().command
       console.log(str)
       wx.cloud.database().collection('place_day_last').where({ 
-        date: this.data.tomorrow
+        date: this.data.date
       }).update({
         data:{
-          [str]:_.inc(-1)
+          [str]: 0
         }
       }).then(res=>{
         console.log('place_day_last数据提交成功')
@@ -178,7 +184,7 @@ Page({
     },
 
     //提交表单
-    submit:function(){  
+    submit:function(){
       if(this.data.agree==0)
       {
         wx.showModal({
@@ -188,7 +194,7 @@ Page({
         })
       }
       else{
-          if(this.data.name&&this.data.class&&this.data.id&&this.data.phone&&this.data.mail&&this.data.useage&&this.data.time_num)
+        if(this.data.name&&this.data.class&&this.data.id&&this.data.phone&&this.data.mail&&this.data.useage&&this.data.time_num)
         {
           this.add_had_reserve() //提交数据到had_reserve数据库
           for(let k=0;k<this.data.time_num;k++){  //提交数据给reserve数据库
@@ -196,16 +202,16 @@ Page({
             wx.cloud.database().collection('reserve').add({
               data:{
                 class: this.data.class,
-                date: this.data.tomorrow,
+                date: this.data.date,
                 mail:this.data.mail,
                 name:this.data.name,
                 phone:this.data.phone,
                 place:this.data.place,
                 studdentId:this.data.id,
+                status:0, //是否审核成功，成功的话为1，否则为0
                 time: temp,
-                status:1,  //是否审核成功，成功的话为1，否则为0
                 useage: this.data.useage,
-                model:'个人'
+                model: '团体',
               }
             }).then(res=>{
               this.sub_place_day_last(this.data.time_name_arr[k])  //提交数据到place_day_last
@@ -217,7 +223,7 @@ Page({
             wx.showModal({
               title:'提示',
               confirmText:'确定',
-              content:'成功',
+              content:'预约申请已提交，请等待审核结果',
               success:function(res){
                 if(res.confirm)
                 {
@@ -236,14 +242,14 @@ Page({
             content:'请将所有选项填写完毕'
           })
         }
-      } 
+      }
     },
 
     // 连接数据库,获取每个时间段剩余人数
     getlast:function(){
-      let temp=[30,30,30,30,30,30,30,30,30] //将剩余人数假定为30
+      let temp=[30,30,30,30,30,30,30,30,30,30] //将剩余人数假定为30
       wx.cloud.database().collection('place_day_last').where({
-        date: this.data.tomorrow,
+        date: this.data.date,
         place: this.data.place
       }).get()
       .then(res=>{
@@ -252,7 +258,7 @@ Page({
         {
           wx.cloud.database().collection('place_day_last').add({
             data:{
-              date:this.data.tomorrow,
+              date:this.data.date,
               place:this.data.place,
               status:1,
               time01:30,
@@ -307,10 +313,10 @@ Page({
     },
 
     get_my:function(){  //获取我已预约过的时间
-      let temp=[false,false,false,false,false,false,false,false,false]//记录每个时间段是否被预约过
+      let temp=[false,false,false,false,false,false,false,false,false,false]//记录每个时间段是否被预约过
       wx.cloud.database().collection('reserve').where({
         _openid:this.data.openid,
-        date : this.data.tomorrow
+        date : this.data.date
       }).get().then(res=>{
         for(let i=0;i<res.data.length;i++)
         {
@@ -348,27 +354,23 @@ Page({
       })
     },
 
+    add_Date:function(e){  //获取时间
+      this.setData({
+        date: e.detail.value
+      })
+      this.getlast()
+      this.get_my()
+    },
+
     show_agreement:function(){
-        this.setData({
-          agreement:'agreement'
-        })
+      this.setData({
+        agreement:'agreement'
+      })
     },
 
     hide_agreement:function(){
       this.setData({
         agreement:'hide'
-      })
-    },
-
-    show_ChooseTime:function(){
-      this.setData({
-        ChooseTime:'choosetime',
-      })
-    },
-
-    hide_ChooseTime:function(){
-      this.setData({
-        ChooseTime:'hide',
       })
     },
 
@@ -378,45 +380,6 @@ Page({
         agree:e.detail.value.length
       })
       console.log(this.data.agree)
-    },
-
-    get_user:function(){    //获取user信息，暂未使用
-        wx.cloud.database().collection('user').get()
-        .then(res=>{
-          console.log('请求成功',res)
-          if(res.data.length==0)
-          {
-            wx.cloud.database().collection('user').add({
-              data:{
-                date: this.data.tomorrow,
-                dis_reserve_time: 0,
-                reserve_time: 0,
-              }
-            }).then(res=>{
-                this.setData({
-                  date: this.data.tomorrow,
-                  dis_reserve_time: 0,
-                  reserve_time: 0,
-              })
-            }).catch(err=>{
-              show_err()
-              console.log(err)
-            })
-          }
-          else
-          {
-              this.setData({
-                date: res.data[0].date,
-                dis_reserve_time: res.data[0].dis_reserve_time,
-                reserve_time: res.data[0].reserve_time,
-            })
-          }
-          console.log(this.data.complet)
-      })
-      .catch(err=>{
-          console.log('请求失败',err)
-          show_err()
-      })
     },
 
     /**
@@ -437,7 +400,9 @@ Page({
       }
       var date = new Date() 
       //设置今日日期
-      this.setData({tomorrow:get_tomorrow(date.getFullYear(),date.getMonth()+1,date.getDate()) })
+      this.setData({tomorrow:get_tomorrow(date.getFullYear(),date.getMonth()+1,date.getDate()),
+                    date: get_tomorrow(date.getFullYear(),date.getMonth()+1,date.getDate())
+      })
       this.getlast()  //获取剩余天数
       this.get_my()
     },
@@ -530,6 +495,57 @@ function get_tomorrow(year,month,day){
       day='0'+day
     }
     return year+'-'+month+'-'+day
+}
+
+function get_endday(year,month,day,num){  
+  var day_num //day_num为四周后的周日据今的总天数
+  if(num==0)
+  {
+    day_num=21  
+  }
+  else{
+    day_num= 28-num
+  }
+  var mon_day=[31,28,31,30,31,30,31,31,30,31,30,31]
+  month--
+  //在月份为2时考虑闰月
+  if(mon_day==1)
+  {
+    if((year%4==0&&year%100!=0)||year%400==0)
+    {
+      mon_day[1]=29
+    }
+  }
+  for(var i=0;i<day_num;i++)
+  {
+    if(day<mon_day[month])
+    {
+      day++
+    }
+    else
+    {
+      if(month<11)
+      {
+        month++;
+        day=1;
+      }
+      else{
+        year++;
+        month=0;
+        day=1;
+      }
+    }
+  }
+  month++
+  if(month<10)
+    {
+      month='0'+month
+    }
+    if(day<10)
+    {
+      day='0'+day
+    }
+  return year+'-'+month+'-'+day
 }
 
 function change_timearr(arr){

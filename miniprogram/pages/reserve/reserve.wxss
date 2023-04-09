@@ -53,5 +53,9 @@
 	top:10px;
 	left: 100px;
 	position: absolute;
-	height: 90%;
+	height: 85%;
+  }
+
+  .low_opcity{
+	  opacity: 0.45;
   }

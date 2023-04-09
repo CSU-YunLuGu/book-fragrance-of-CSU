@@ -1,0 +1,51 @@
+<view class="root">
+	<view class="content">
+		<view class="add_forbid">
+			<view class="title" bindlongpress="show_admin">
+			<view>添加禁选日期</view>
+			</view>
+			<picker mode="date" value="{{date}}" start='{{tomorrow}}' bindchange="add_Date">
+				<view class="picker">
+					当前选择: {{date}}
+				</view>
+			</picker>
+			<view class="divide_two">
+			<view class="chose_place {{place1_focus}}" bindtap="show_place1">阅览室1</view>
+			<view class="chose_place {{place2_focus}}" bindtap="show_place2">阅览室2</view>
+			</view>
+			<view class="button" bindtap="forbid">禁选</view>
+		</view>
+
+		<view class="already_forbid">
+			<view class="title" bindlongpress="show_admin">
+			<view>已禁选日期</view>
+			</view>
+			<view wx:for="{{li}}">
+				<view data-index="{{index}}" class="time_table" bindtap="show_detail">
+					<view class="time {{time_color[item.status]}}" data-index="{{index}}">
+					<view data-index="{{index}}">{{item.date}}</view>
+					</view>
+					<view class="val {{val_color[item.status]}}" data-index="{{index}}">
+					<view data-index="{{index}}">{{item.place}}</view>
+					</view>
+				</view>
+			</view>	
+		</view>
+		<view class="{{nothing}}"></view>
+	</view>
+</view>
+
+
+
+<view class="{{mask}}">
+    <view class="detail">
+      <view class="to_font">
+        <view class="title2">详细信息</view>  
+        <view class="paragragh">地点：{{choose_place}}</view>
+        <view class="paragragh">日期：{{choose_date}}</view>
+        <view class="button" bindtap="hide_detail">已知晓</view>
+		<view class="button" bindtap="cancel">取消禁选</view>
+      </view>
+    </view>
+</view>
+

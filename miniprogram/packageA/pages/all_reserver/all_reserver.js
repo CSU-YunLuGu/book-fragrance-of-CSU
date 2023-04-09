@@ -9,6 +9,7 @@ Page({
       "20:00~20:40","21:00~22:20"],
       li:[], //存数据
       mask:'hide',
+      hide:["hide","","hide"],
       class:'',
       name:'',
       phone:'',
@@ -21,7 +22,8 @@ Page({
       useage:'',
       get_time:1,//请求数据的次数
       is_get_all:0,//是否已获取所有数据
-      nothing:'hide'//页面底部空白是否显示
+      nothing:'hide',//页面底部空白是否显示
+      index: 0,
     },
 
     show_detail : function(e){
@@ -55,6 +57,7 @@ Page({
       success: function(res){
         if(res.confirm)
         {
+            var temp = "li["+that.data.index+"].status"
             let num
             if(that.data.model=='个人')
               num=1
@@ -76,12 +79,67 @@ Page({
             wx.showModal({
                 title:'提示',
                 confirmText:'确定',
-                content:'取消预约成功（如需查看最新数据，请刷新页面）',
+                content:'取消预约成功',
               })
               that.setData({
-                mask:'hide'
+                mask:'hide',
+                [temp]:0,
               })
             console.log('取消预约成功')
+          }).catch(err=>{
+            console.log('错误',err)
+            show_err()
+          })}).catch(err=>{
+            console.log('错误',err)
+            show_err()
+          })
+        }
+      }
+    })
+  },
+
+  deny_reserve:function(e){
+    var that = this
+    wx.showModal({
+      title:'提示',
+      confirmText:'确定',
+      content:'要否决预约吗？',
+      success: function(res){
+        if(res.confirm)
+        {
+            var temp = "li["+that.data.index+"].status"
+            let num
+            if(that.data.model=='个人')
+              num=1
+            else
+              num=30
+            let timeindex= get_index(that.data.time)
+            console.log('取消时间为',timeindex)
+            console.log('数据库要增加人数为',num)
+            const _ = wx.cloud.database().command
+            wx.cloud.database().collection('reserve').doc(that.data.id).update({
+              data:{
+                status:2
+              }
+            }).then(res=>{
+            wx.cloud.database().collection('place_day_last').where({ 
+            date:  that.data.date,
+            place: that.data.place,
+          }).update({
+            data:{
+              [timeindex]:_.inc(num)
+            }
+          }).then(res=>{
+            wx.showModal({
+                title:'提示',
+                confirmText:'确定',
+                content:'取消预约成功',
+              })
+              that.setData({
+                mask:'hide',
+                [temp]:2,
+              })
+            console.log('否决预约成功')
           }).catch(err=>{
             console.log('错误',err)
             show_err()
@@ -98,7 +156,9 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        wx.cloud.database().collection('reserve').orderBy('date','desc').limit(20).get()
+        wx.cloud.database().collection('reserve').where({
+          status:1
+        }).orderBy('date','desc').limit(20).get()
       .then(res=>{
         console.log('请求成功',res)
         this.setData({
@@ -123,33 +183,7 @@ Page({
     })
     },
 
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload() {
-
-    },
+    
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
@@ -231,7 +265,7 @@ function show_err(){
       if(res.confirm)
       {
         wx.reLaunch({
-          url: '../reserve/reserve',
+          url: '../../../pages/reserve/reserve',
         })
         
       }

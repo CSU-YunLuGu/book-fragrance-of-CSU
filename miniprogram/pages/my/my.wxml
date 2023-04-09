@@ -2,8 +2,13 @@
 	<!-- <image class='background-image' src='../../images/back.jpg' mode="aspectFill"></image> -->
 	<view class="content">
 		<view class="title" bindlongpress="show_admin">预约记录</view>
+		<view class="color_tip">
+			<view class="col_center"><view class="purple little_box"></view>待审核</view>
+			<view><view class="orange little_box"></view>已过审</view>
+			<view><view class="red little_box"></view>未过审</view>
+		</view>
 		<view wx:for="{{li}}">
-			<view class="box {{color[index%2]}}" data-index="{{index}}" bindtap="show_detail">
+			<view class="box {{color[item.status]}}" data-index="{{index}}" bindtap="show_detail">
 				<view data-index="{{index}}">姓名：{{item.name}}</view>
 				<view data-index="{{index}}">地点：{{item.place}}</view>
 				<view data-index="{{index}}">时间：{{item.date}} {{item.time}}</view>
@@ -16,12 +21,14 @@
     <view class="detail">
       <view class="to_font">
         <view class="title2">详细信息</view>
+		<view class="paragragh">状态：{{status}}</view>
         <view class="paragragh">姓名：{{name}}</view>
-		    <view class="paragragh">预约规格：{{model}}</view>
+		<view class="paragragh">预约规格：{{model}}</view>
         <view class="paragragh">电话：{{phone}}</view>
         <view class="paragragh">地点：{{place}}</view>
         <view class="paragragh">日期：{{date}}</view>
-		    <view class="paragragh">时间：{{time}}</view>
+		<view class="paragragh">用途：{{useage}}</view>
+		<view class="paragragh">时间：{{time}}</view>
         <view class="button" bindtap="hide_detail">已知晓</view>
 		<view class="button" bindtap="cancel_reserve">取消预约</view>
       </view>

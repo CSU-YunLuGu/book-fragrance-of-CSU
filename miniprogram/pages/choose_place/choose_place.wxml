@@ -3,7 +3,7 @@
  <!-- 页面内容 -->
   <view class="content">
     <view class="place purple_back">
-      <view class="place_name">沙龙室1</view>
+      <view class="place_name">阅览室1</view>
       <image class="image_use" src="../../images/place1.jpg" mode="aspectFill"></image>
       <view class="people">
         <view class="small_flex_box right_border">
@@ -18,15 +18,15 @@
       <view class="info small_font_size">
         <view class=".divide_two">
           <view>校区</view>
-          <view>南校区</view>
+          <view>校本部</view>
         </view>
         <view class=".divide_two">
           <view>楼栋</view>
-          <view>20栋</view>
+          <view>九舍</view>
         </view>
         <view class=".divide_two">
           <view>详细地址</view>
-          <view>学生9社2楼114</view>
+          <view>2楼202</view>
         </view>
         <view class=".divide_two">
           <view>负责部门</view>
@@ -41,7 +41,7 @@
       </view>
     </view>
     <view class="place orange_back">
-      <view class="place_name">沙龙室2</view>
+      <view class="place_name">阅览室2</view>
       <image class="image_use" src="../../images/place2.jpg" mode="aspectFill"></image>
       <view class="people">
         <view class="small_flex_box right_border">
@@ -56,15 +56,15 @@
       <view class="info small_font_size">
         <view class=".divide_two">
           <view>校区</view>
-          <view>南校区</view>
+          <view>校本部</view>
         </view>
         <view class=".divide_two">
           <view>楼栋</view>
-          <view>20栋</view>
+          <view>九舍</view>
         </view>
         <view class=".divide_two">
           <view>详细地址</view>
-          <view>学生9社2楼114</view>
+          <view>3楼302</view>
         </view>
         <view class=".divide_two">
           <view>负责部门</view>
@@ -84,7 +84,7 @@
       <view class="to_font">
         <view class="title">注意事项</view>
         <view class="paragragh">1.场馆预约成功后无特殊情况不能随意更改，使用期间不能带走或毁坏房间内的公共物品，不能大声喧哗。在使用结束后，需整理好所在位置卫生。</view>
-        <view class="paragragh">2.预约了场馆的老师、同学可以加入沙龙室使用群，群号为653122335，有任何问题可以在沙龙室使用群说明，或联系群主（qq号1264039512）。</view>
+        <view class="paragragh">2.预约了场馆的老师、同学可以加入阅览室使用群，群号为653122335，有任何问题可以在阅览室使用群说明，或联系群主（qq号1264039512）。</view>
         <view class="paragragh">3.预约成功的老师、同学请按时进入场馆，如有特殊情况管理员会第一时间撤消预约者的申请，并打电话说明情况。</view>
         <view class="paragragh">4.使用者在使用场馆前，需要在场馆门口登记本中进行登记。</view>
         <view class="{{time_class}}">{{time}}</view>

@@ -24,8 +24,8 @@ Page({
       time_arr:[], //选择的时间
       time_name_arr:[],//选择的时间的名称
       time_select:[{time:"09:10~09:50",disabled:false},//time为时间段，checke为是否选中，disabled为是否禁用
-      {time:"10:00~10:40",disabled:false},{time:"11:00~11:40",disabled:false},{time:"14:00~14:40",disabled:false},{time:"15:00~15:40",disabled:false},{time:"16:00~16:40",disabled:false},{time:"17:00~17:40",disabled:false},{time:"19:00~19:40",disabled:false},{time:"20:00~20:40",disabled:false},{time:"21:00~22:20",disabled:false}],
-      lasted:[30,30,30,30,30,30,30,30,30,30], //剩余数量
+      {time:"10:00~10:40",disabled:false},{time:"11:00~11:40",disabled:false},{time:"14:00~14:40",disabled:false},{time:"15:00~15:40",disabled:false},{time:"16:00~16:40",disabled:false},{time:"17:00~17:40",disabled:false},{time:"19:00~19:40",disabled:false},{time:"20:00~20:40",disabled:false}],
+      lasted:[30,30,30,30,30,30,30,30,30], //剩余数量
       class_arr:['gray_border','gray_border','gray_border','gray_border','gray_border','gray_border'], //输入框的class
       agreement:'hide',
       agree:0,
@@ -106,7 +106,7 @@ Page({
       //最多选择四个时间
       if(e.detail.value.length==4-this.data.had_reserve) 
       {
-        for(let i=0;i<10;i++)
+        for(let i=0;i<9;i++)
         {
           let temp= 'time_select['+i+'].disabled'
           this.setData({
@@ -126,7 +126,7 @@ Page({
       {
         if(this.data.disabled==true)
         {
-          for(let i=0;i<10;i++)
+          for(let i=0;i<9;i++)
         {
           let temp= 'time_select['+i+'].disabled'
           this.setData({
@@ -196,6 +196,7 @@ Page({
       else{
         if(this.data.name&&this.data.class&&this.data.id&&this.data.phone&&this.data.mail&&this.data.useage&&this.data.time_num)
         {
+          this.add_had_reserve() //提交数据到had_reserve数据库
           for(let k=0;k<this.data.time_num;k++){  //提交数据给reserve数据库
             var temp=this.data.time_select[this.data.time_arr[k]].time
             wx.cloud.database().collection('reserve').add({
@@ -207,6 +208,7 @@ Page({
                 phone:this.data.phone,
                 place:this.data.place,
                 studdentId:this.data.id,
+                status:0, //是否审核成功，成功的话为1，否则为0
                 time: temp,
                 useage: this.data.useage,
                 model: '团体',
@@ -218,11 +220,10 @@ Page({
               show_err()
             })
           }
-          this.add_had_reserve() //提交数据到had_reserve数据库
             wx.showModal({
               title:'提示',
               confirmText:'确定',
-              content:'成功',
+              content:'预约申请已提交，请等待审核结果',
               success:function(res){
                 if(res.confirm)
                 {
@@ -259,6 +260,7 @@ Page({
             data:{
               date:this.data.date,
               place:this.data.place,
+              status:1,
               time01:30,
               time02:30,
               time03:30,
@@ -268,7 +270,6 @@ Page({
               time07:30,
               time08:30,
               time09:30,
-              time10:30
             }
           }).then(res=>{
               this.setData({
@@ -282,16 +283,24 @@ Page({
         }
         else  //数据库中有该日期的表，则获取剩余人数
         {
-          temp[0]=res.data[0].time01
-          temp[1]=res.data[0].time02
-          temp[2]=res.data[0].time03
-          temp[3]=res.data[0].time04
-          temp[4]=res.data[0].time05
-          temp[5]=res.data[0].time06
-          temp[6]=res.data[0].time07
-          temp[7]=res.data[0].time08
-          temp[8]=res.data[0].time09
-          temp[9]=res.data[0].time10
+          if(res.data[0].status==0)  //检测是否禁用
+          {
+            for(var i=0;i<9;i++)
+            {
+              temp[i]=0
+            }
+          }
+          else{
+            temp[0]=res.data[0].time01
+            temp[1]=res.data[0].time02
+            temp[2]=res.data[0].time03
+            temp[3]=res.data[0].time04
+            temp[4]=res.data[0].time05
+            temp[5]=res.data[0].time06
+            temp[6]=res.data[0].time07
+            temp[7]=res.data[0].time08
+            temp[8]=res.data[0].time09
+          }
           this.setData({
             lasted:temp
           })
@@ -311,7 +320,7 @@ Page({
       }).get().then(res=>{
         for(let i=0;i<res.data.length;i++)
         {
-          for(let j=0;j<10;j++)
+          for(let j=0;j<9;j++)
           {
             if(this.data.time_select[j].time== res.data[i].time) //即该场已预约过
             {
@@ -325,7 +334,7 @@ Page({
         })
           if(this.data.had_reserve>3) //如果已经预约4个过程，则禁止选择
         {
-          for(let i=0;i<10;i++)
+          for(let i=0;i<9;i++)
           {
             let time_temp= 'time_select['+i+'].disabled'
             this.setData({
@@ -383,15 +392,15 @@ Page({
       })
       if(options.place==1)
       {
-        this.setData({place:"沙龙室1"})
+        this.setData({place:"阅览室1"})
       }
       else
       {
-        this.setData({place:"沙龙室2"})
+        this.setData({place:"阅览室2"})
       }
       var date = new Date() 
       //设置今日日期
-      this.setData({end_day: get_endday(date.getFullYear(),date.getMonth()+1,date.getDate(),date.getDay())})
+      this.setData({end_day: get_endday(date.getFullYear(),date.getMonth()+1,date.getDate())})
       this.setData({tomorrow:get_tomorrow(date.getFullYear(),date.getMonth()+1,date.getDate()),
                     date: get_tomorrow(date.getFullYear(),date.getMonth()+1,date.getDate())
       })
@@ -489,19 +498,12 @@ function get_tomorrow(year,month,day){
     return year+'-'+month+'-'+day
 }
 
-function get_endday(year,month,day,num){  
-  var day_num //day_num为四周后的周日据今的总天数
-  if(num==0)
-  {
-    day_num=21  
-  }
-  else{
-    day_num= 28-num
-  }
+function get_endday(year,month,day){  
+  var day_num=14 //day_num为四周后的周日据今的总天数
   var mon_day=[31,28,31,30,31,30,31,31,30,31,30,31]
   month--
   //在月份为2时考虑闰月
-  if(mon_day==1)
+  if(month==1)
   {
     if((year%4==0&&year%100!=0)||year%400==0)
     {
@@ -589,7 +591,7 @@ function show_err(){
       if(res.confirm)
       {
         wx.reLaunch({
-          url: '../../../pages/choose_place/choose_place',
+          url: '../../../pages/reserve/reserve',
         })
         
       }

@@ -10,17 +10,16 @@ Page({
         time:5, //倒计时
         time_class:'sure', //time的class
         who:1,  //1为个人，2为团体
-        place:1  //地点
+        place:1,  //地点
+        complet:[],
     },
     show_gray_back:function(e)
     {
-      console.log('hadshow')
         this.setData({
             gray_back:'gray_back',
             who:e.target.dataset.who,
             place:e.target.dataset.place
         })
-        console.log(this.data.gray_back)
         let interval = setInterval(() => {
           this.setData({
             time:this.data.time-1

@@ -9,8 +9,9 @@ Page({
       page_date:'',
       page_place:'',
       time_arr:["09:10~09:50","10:00~10:40","11:00~11:40","14:00~14:40","15:00~15:40","16:00~16:40","17:00~17:40","19:00~19:40",
-      "20:00~20:40","21:00~22:20"],
+      "20:00~20:40"],
       li:[],
+      hide:["hide","","hide"],
       mask:'hide',
       class:'',
       name:'',
@@ -22,6 +23,7 @@ Page({
       mail:'',
       model:'',
       useage:'',
+      index:0,
     },
 
     show_detail : function(e){
@@ -36,6 +38,7 @@ Page({
           model: this.data.li[e.target.dataset.index].model,
           class:this.data.li[e.target.dataset.index].class,
           useage:this.data.li[e.target.dataset.index].useage,
+          index:e.target.dataset.index,
           mask:'mask'
       })
   },
@@ -55,6 +58,7 @@ Page({
       success: function(res){
         if(res.confirm)
         {
+            var temp = "li["+that.data.index+"].status"
             let num
             if(that.data.model=='个人')
               num=1
@@ -76,12 +80,67 @@ Page({
             wx.showModal({
                 title:'提示',
                 confirmText:'确定',
-                content:'取消预约成功（如需查看最新数据，请刷新页面）',
+                content:'取消预约成功',
               })
               that.setData({
-                mask:'hide'
+                mask:'hide',
+                [temp]:0,
               })
             console.log('取消预约成功')
+          }).catch(err=>{
+            console.log('错误',err)
+            show_err()
+          })}).catch(err=>{
+            console.log('错误',err)
+            show_err()
+          })
+        }
+      }
+    })
+  },
+
+  deny_reserve:function(e){
+    var that = this
+    wx.showModal({
+      title:'提示',
+      confirmText:'确定',
+      content:'要否决预约吗？',
+      success: function(res){
+        if(res.confirm)
+        {
+            var temp = "li["+that.data.index+"].status"
+            let num
+            if(that.data.model=='个人')
+              num=1
+            else
+              num=30
+            let timeindex= get_index(that.data.time)
+            console.log('取消时间为',timeindex)
+            console.log('数据库要增加人数为',num)
+            const _ = wx.cloud.database().command
+            wx.cloud.database().collection('reserve').doc(that.data.id).update({
+              data:{
+                status:2
+              }
+            }).then(res=>{
+            wx.cloud.database().collection('place_day_last').where({ 
+            date:  that.data.date,
+            place: that.data.place,
+          }).update({
+            data:{
+              [timeindex]:_.inc(num)
+            }
+          }).then(res=>{
+            wx.showModal({
+                title:'提示',
+                confirmText:'确定',
+                content:'取消预约成功',
+              })
+              that.setData({
+                mask:'hide',
+                [temp]:2,
+              })
+            console.log('否决预约成功')
           }).catch(err=>{
             console.log('错误',err)
             show_err()
@@ -101,7 +160,7 @@ Page({
       if(options.place==1)
       {
         this.setData({
-          page_place:"沙龙室1",
+          page_place:"阅览室1",
           page_time: this.data.time_arr[options.index],
           page_date: options.date
       })
@@ -109,7 +168,7 @@ Page({
       else
       {
         this.setData({
-          page_place:"沙龙室2",
+          page_place:"阅览室2",
           page_time: this.data.time_arr[options.index],
           page_date: options.date
         })
@@ -120,6 +179,7 @@ Page({
           date:this.data.page_date,
           place:this.data.page_place,
           time:this.data.page_time,
+          status:1,
         }).get()
       .then(res=>{
         console.log('请求成功',res)
@@ -220,7 +280,7 @@ function show_err(){
       if(res.confirm)
       {
         wx.reLaunch({
-          url: '../reserve/reserve',
+          url: '../../../pages/reserve/reserve',
         })
         
       }

@@ -1,22 +1,22 @@
 <view class="root">
 	<view class="content">
 		<view class="title" bindlongpress="show_admin">
-      <view>预约总名单</view>
+      <view>待审核名单</view>
     </view>
       <view class="time_table">
-        <view class="time" data-index="{{index}}">
+        <view class="time orange" data-index="{{index}}">
           <view>姓名</view>
         </view>
-        <view class="val" data-index="{{index}}">
+        <view class="val orange" data-index="{{index}}">
           <view>预约日期</view>
         </view>
       </view>
       <view wx:for="{{li}}">
         <view data-index="{{index}}" class="time_table" bindtap="show_detail">
-          <view class="time {{time_color[item.status]}}" data-index="{{index}}">
+          <view class="time {{color[item.status]}}" data-index="{{index}}">
             <view data-index="{{index}}">{{item.name}}</view>
           </view>
-          <view class="val {{time_color[item.status]}}" data-index="{{index}}">
+          <view class="val {{color[item.status]}}" data-index="{{index}}">
             <view data-index="{{index}}">{{item.date}}</view>
           </view>
         </view>
@@ -31,16 +31,16 @@
         <view class="title2">详细信息</view>
         <view class="paragragh">单位：{{class}}</view>
         <view class="paragragh">姓名：{{name}}</view>
-		    <view class="paragragh">预约规格：{{model}}</view>
+		<view class="paragragh">预约规格：{{model}}</view>
         <view class="paragragh">电话：{{phone}}</view>
         <view class="paragragh">邮箱：{{mail}}</view>
         <view class="paragragh">地点：{{place}}</view>
         <view class="paragragh">日期：{{date}}</view>
         <view class="paragragh">用途：{{useage}}</view>
-		    <view class="paragragh">时间：{{time}}</view>
+		<view class="paragragh">时间：{{time}}</view>
         <view class="button" bindtap="hide_detail">已知晓</view>
-        <view class="button" bindtap="deny_reserve">否决预约</view>
-		    <view class="button" bindtap="cancel_reserve">取消预约</view>
+		<view class="button" bindtap="agree">批准</view>
+		<view class="button" bindtap="deny">否决</view>
       </view>
     </view>
 </view>

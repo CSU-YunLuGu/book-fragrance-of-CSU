@@ -19,8 +19,8 @@ Page({
     },
 
     getlast:function(){
-      let temp=[30,30,30,30,30,30,30,30,30,30] //将剩余人数假定为30
-      let temp2=[30,30,30,30,30,30,30,30,30,30]
+      let temp=[30,30,30,30,30,30,30,30,30] //将剩余人数假定为30
+      let temp2=[30,30,30,30,30,30,30,30,30]
       wx.cloud.database().collection('place_day_last').where({
         date: this.data.date,
       }).get()
@@ -44,8 +44,7 @@ Page({
             temp[6]=30-res.data[0].time07
             temp[7]=30-res.data[0].time08
             temp[8]=30-res.data[0].time09
-            temp[9]=30-res.data[0].time10
-          if(res.data[0].place=='沙龙室1')
+          if(res.data[0].place=='阅览室1')
           {
             this.setData({
               place1:temp,
@@ -74,7 +73,6 @@ Page({
             temp[6]=30-res.data[0].time07
             temp[7]=30-res.data[0].time08
             temp[8]=30-res.data[0].time09
-            temp[9]=30-res.data[0].time10
             temp2[0]=30-res.data[1].time01
             temp2[1]=30-res.data[1].time02
             temp2[2]=30-res.data[1].time03
@@ -84,8 +82,7 @@ Page({
             temp2[6]=30-res.data[1].time07
             temp2[7]=30-res.data[1].time08
             temp2[8]=30-res.data[1].time09
-            temp2[9]=30-res.data[1].time10
-            if(res.data[0].place=='沙龙室1')
+            if(res.data[0].place=='阅览室1')
             {
               this.setData({
                 place1:temp,
@@ -121,7 +118,7 @@ Page({
       }).get().then(res=>{
         for(let i=0;i<res.data.length;i++)
         {
-          for(let j=0;j<10;j++)
+          for(let j=0;j<9;j++)
           {
             if(this.data.time_select[j].time== res.data[i].time) //即该场已预约过
             {
@@ -135,7 +132,7 @@ Page({
         })
           if(this.data.had_reserve>3) //如果已经预约4个过程，则禁止选择
         {
-          for(let i=0;i<10;i++)
+          for(let i=0;i<9;i++)
           {
             let time_temp= 'time_select['+i+'].disabled'
             this.setData({

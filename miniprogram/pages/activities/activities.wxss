@@ -16,6 +16,7 @@
 	background-color: white;
 	color: grey;
 }
+
 .box{
 	position: relative;
 	border-radius: 5px;

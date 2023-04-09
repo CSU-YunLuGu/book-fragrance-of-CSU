@@ -54,9 +54,9 @@
   <view class="title_date">可预约日期  
       </view>
       <view class="title_date">
-      {{tomorrow}}~{{end_day}}</view>
+      {{tomorrow}}~∞</view>
       <view>
-        <picker mode="date" value="{{date}}" start='{{tomorrow}}' end="{{end_day}}" bindchange="add_Date">
+        <picker mode="date" value="{{date}}" start='{{tomorrow}}' bindchange="add_Date">
         <view class="picker">
           当前选择: {{date}}
         </view>

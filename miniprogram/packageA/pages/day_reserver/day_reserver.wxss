@@ -17,10 +17,10 @@
 	text-align: center;
 	position: relative;
 	overflow: hidden;
-	height: 440px;
+	height: 480px;
 	border-radius: 5px;
 	border: 1px solid rgb(141, 156, 156);
-	top: 50px;
+	top: 30px;
 	left: 15%;
 	z-index: 100;
 	width: 70%;

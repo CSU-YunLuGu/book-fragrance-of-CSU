@@ -7,8 +7,8 @@
     </view>
       <view wx:for="{{li}}">
         <view data-index="{{index}}" class="time_table" bindtap="show_detail">
-          <view class="time" data-index="{{index}}">姓名：{{item.name}}</view>
-          <view class="val" data-index="{{index}}">电话：{{item.phone}}</view>
+          <view class="time {{hide[item.status]}}" data-index="{{index}}">姓名：{{item.name}}</view>
+          <view class="val {{hide[item.status]}}" data-index="{{index}}">电话：{{item.phone}}</view>
         </view>
 		  </view>	
 	</view>
@@ -28,7 +28,8 @@
         <view class="paragragh">用途：{{useage}}</view>
 		    <view class="paragragh">时间：{{time}}</view>
         <view class="button" bindtap="hide_detail">已知晓</view>
-		    <view class="button" bindtap="cancel_reserve">取消预约</view>
+        <view class="button" bindtap="deny_reserve">否决预约</view>
+		    <view class="button" bindtap="cancel_reserve">删除预约</view>
       </view>
     </view>
 </view>
